@@ -13,7 +13,7 @@ export default function Result({card, onSetSelected}) {
   function handleClick() {
     const clickedCard = {
       img: (card.image_uris ?? front.image_uris).normal ?? "",
-      backImg: (card.image_uris ?? back.image_uris).normal ?? "",
+      backImg: back.image_uris?.normal ?? "",
       name: card.flavor_name && card.flavor_name !== card.name ? `${card.flavor_name} (${card.name})` : card.name,
       type: pick("type_line"),
       artist: "",

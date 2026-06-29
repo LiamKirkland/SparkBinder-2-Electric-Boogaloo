@@ -47,6 +47,31 @@ function Search() {
       </ul>
       <hr></hr>
       <Display card={selectedCard}/>
+      {/* <form onSubmit={handleSubmit}>
+          <textarea placeholder="Add a comment..." name="comment" autocomplete="off"></textarea>
+          <div id="addFormOptions">
+            <div>
+              <label>Foil</label>
+              <input type="checkbox"></input>
+            </div>
+            <div>
+              <label>Full Art</label>
+              <input type="checkbox"></input>
+            </div>
+            <div>
+              <label>Condition</label>
+              <select required>
+                <option value="">Select a Condition</option>
+                <option value="Near Mint">Near Mint</option>
+                <option value="Lightly Played">Lightly Played</option>
+                <option value="Moderately Played">Moderately Played</option>
+                <option value="Heavily Played">Heavily Played</option>
+                <option value="Damaged">Damaged</option>
+              </select>
+            </div>
+          </div>
+          <input type="submit" value="Add Card"></input>
+        </form> */}
     </div>
   );
 }
