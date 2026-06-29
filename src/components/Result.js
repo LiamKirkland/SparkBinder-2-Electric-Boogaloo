@@ -16,8 +16,8 @@ export default function Result({card, onSetSelected}) {
       backImg: back.image_uris?.normal ?? "",
       name: card.flavor_name && card.flavor_name !== card.name ? `${card.flavor_name} (${card.name})` : card.name,
       type: pick("type_line"),
-      artist: "",
-      set: "",
+      artist: pick("artist"),
+      set: card.set_name,
       description: oracleText,
       flavor_text: pick("flavor_text") ?? ""
     }
