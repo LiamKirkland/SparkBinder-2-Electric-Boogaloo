@@ -25,3 +25,13 @@ li div {
   margin-top: 6px;
   word-wrap: break-word;
 }
+
+#displayDiv {
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+
+#displayDiv img{
+  width: 60%;
+}

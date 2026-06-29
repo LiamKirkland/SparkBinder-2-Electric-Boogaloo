@@ -1,10 +1,23 @@
 import { useState } from "react";
-import { scryURL, collURL, auditURL } from "./constraints";
+import { scryURL } from "./constraints";
 import Result from "./components/Result";
+import Display from "./components/Display";
+
+const placeholderCard = {
+  img : "/placeholder.jpg",
+  backImg : "",
+  name : "Search for a card!",
+  type : "Card - Placeholder",
+  artist : "Xiaojie Cat",
+  set : "",
+  description : "",
+  flavor_text : "This card is very powerful, as you can tell from the image..."
+}
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState("")
   const [cardResults, setCardResults] = useState([])
+  const [selectedCard, setSelectedCard] = useState(placeholderCard)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -17,6 +30,7 @@ function Search() {
       } else {
         const cards = queryRes.data
         setCardResults([...cards.slice(0, 10)])
+        setSelectedCard(placeholderCard)
       }
     })
   }
@@ -29,8 +43,10 @@ function Search() {
         <input type="submit" value="Search"></input>
       </form>
       <ul>
-        {cardResults.map(card => <Result card={card} key={card.id}/>)}
+        {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={setSelectedCard}/>)}
       </ul>
+      <hr></hr>
+      <Display card={selectedCard}/>
     </div>
   );
 }
