@@ -1,6 +1,21 @@
 {
   "collection": [
+    {
+      "img": "https://cards.scryfall.io/normal/front/9/7/97162e95-5cc6-4c83-996c-622bc25e7d0f.jpg?1714512129",
+      "backImg": "",
+      "name": "Feather, the Redeemed",
+      "flavor_name": "Miku, the Renowned",
+      "type": "Legendary Creature — Angel",
+      "artist": "Yuko Shimizu",
+      "set": "Secret Lair Drop",
+      "description": "Flying, Whenever you cast an instant or sorcery spell that targets a creature you control, exile that card instead of putting it into your graveyard as it resolves. If you do, return it to your hand at the beginning of the next end step.",
+      "flavor_text": "\"Ooh, I love that song. Let's put it on repeat!\"",
+      "comment": "test",
+      "foil": true,
+      "full_art": false,
+      "condition": "Lightly Played",
+      "id": 1
+    }
   ],
-  "audits": [
-  ]
+  "audits": []
 }

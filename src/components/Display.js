@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { collURL } from "../constraints";
 
 export default function Display({card}) {
-  const {img, backImg, name, type, artist, set, description, flavor_text} = card
+  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text} = card
   const [showBack, setShowBack] = useState(false)
 
   useEffect(() => {
@@ -21,7 +20,7 @@ export default function Display({card}) {
         {backImg ? <button onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
       <div>
-        <div><b>{name}</b></div>
+        <div><b>{flavor_name && flavor_name !== name ? `${flavor_name} (${name})` : name}</b></div>
         <hr></hr>
         <div><b>Type: </b>{type}</div>
         <div><b>Artist: </b>{artist}</div>
