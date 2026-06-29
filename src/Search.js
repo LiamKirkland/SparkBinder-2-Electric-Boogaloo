@@ -2,6 +2,7 @@ import { useState } from "react";
 import { scryURL } from "./constraints";
 import Result from "./components/Result";
 import Display from "./components/Display";
+import NavBar from "./components/NavBar";
 
 const placeholderCard = {
   img : "/placeholder.jpg",
@@ -14,7 +15,7 @@ const placeholderCard = {
   flavor_text : "This card is very powerful, as you can tell from the image..."
 }
 
-function Search() {
+export default function Search() {
   const [searchTerm, setSearchTerm] = useState("")
   const [cardResults, setCardResults] = useState([])
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
@@ -36,8 +37,11 @@ function Search() {
   }
   console.log(cardResults)
   return (
+    <>
+    <header>
+      <NavBar />
+    </header>
     <div>
-      <h1>SparkBinder 2: Electric Boogaloo</h1>
       <form onSubmit={handleSubmit}>
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
         <input type="submit" value="Search"></input>
@@ -47,7 +51,7 @@ function Search() {
       </ul>
       <hr></hr>
       <Display card={selectedCard}/>
-      {/* <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
           <textarea placeholder="Add a comment..." name="comment" autocomplete="off"></textarea>
           <div id="addFormOptions">
             <div>
@@ -71,9 +75,8 @@ function Search() {
             </div>
           </div>
           <input type="submit" value="Add Card"></input>
-        </form> */}
+        </form>
     </div>
+    </>
   );
 }
-
-export default Search;
