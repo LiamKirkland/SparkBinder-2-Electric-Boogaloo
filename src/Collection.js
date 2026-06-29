@@ -20,22 +20,22 @@ export default function Collection() {
   function handleClick(clickedCard) {
     setSelectedCard(clickedCard)
   }
+
+  if(collectionCards.length === 0) {
+    return <h1>Add cards to your collection to view them here!</h1>
+  }
   
   return (
     <>
-    <header>
-      <NavBar />
-    </header>
-    <div>
-      {collectionCards.length > 0 ? 
-      <>
-      <Display card={selectedCard}/>
-      <ul>
-        {collectionCards.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>) }
-      </ul>
-      </>
-      : <h1>Add cards to your collection to view them here!</h1>}
-    </div>
+      <header>
+        <NavBar />
+      </header>
+      <div>
+        <Display card={selectedCard} />
+        <ul>
+          {collectionCards.map(card => <Result card={card} key={card.id} onSetSelected={handleClick} />)}
+        </ul>
+      </div>
     </>
   )
 }
