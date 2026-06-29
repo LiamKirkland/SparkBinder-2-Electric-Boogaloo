@@ -35,3 +35,8 @@ li div {
 #displayDiv img{
   width: 60%;
 }
+
+nav {
+  display: flex;
+  gap: 16px;
+}

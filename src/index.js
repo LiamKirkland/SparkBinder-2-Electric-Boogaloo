@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Search from './Search';
 import './style.css'
+import { routes } from './routes';
+
+const router = createBrowserRouter(routes)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Search />
-  </React.StrictMode>
-);
+root.render(<RouterProvider router={router} />);

@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { scryURL } from "./constraints";
+import { scryURL, collURL, auditURL } from "./constraints";
 import Result from "./components/Result";
 import Display from "./components/Display";
+import NavBar from "./components/NavBar";
 
 const placeholderCard = {
   img : "/placeholder.jpg",
   backImg : "",
   name : "Search for a card!",
+  flavor_name: "",
   type : "Card - Placeholder",
   artist : "Xiaojie Cat",
   set : "",
@@ -14,12 +16,36 @@ const placeholderCard = {
   flavor_text : "This card is very powerful, as you can tell from the image..."
 }
 
-function Search() {
+const blankFormState = {
+  comment: "",
+  foil: false,
+  full_art: false,
+  condition: ""
+}
+
+export default function Search() {
   const [searchTerm, setSearchTerm] = useState("")
   const [cardResults, setCardResults] = useState([])
+  const [formData, setFormData] = useState(blankFormState)
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
 
-  function handleSubmit(e) {
+  function handleChange(e) {
+    const {name, value, checked} = e.target
+
+    setFormData(prevData => {
+      return {
+        ...prevData,
+        [name]: checked ?? value
+      }
+    })
+  }
+
+  function handleClick(clickedCard) {
+    setFormData(blankFormState)
+    setSelectedCard(clickedCard)
+  }
+
+  function handleSearch(e) {
     e.preventDefault()
 
     fetch(`${scryURL}/search?q=${searchTerm.replace(/ /g, "+")}`)
@@ -34,33 +60,54 @@ function Search() {
       }
     })
   }
+
+  function handleAddCard(e) {
+    e.preventDefault()
+
+    if (formData.img === "/placeholder.jpg") {
+      alert("Search for and select a card to add it to your collection!")
+    } else {
+      fetch(collURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...selectedCard,
+          ...formData,
+        }),
+      })
+      .then(setFormData(blankFormState))
+    }
+  }
   console.log(cardResults)
   return (
+    <>
+    <header>
+      <NavBar />
+    </header>
     <div>
-      <h1>SparkBinder 2: Electric Boogaloo</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSearch}>
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
         <input type="submit" value="Search"></input>
       </form>
       <ul>
-        {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={setSelectedCard}/>)}
+        {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
       </ul>
       <hr></hr>
       <Display card={selectedCard}/>
-      {/* <form onSubmit={handleSubmit}>
-          <textarea placeholder="Add a comment..." name="comment" autocomplete="off"></textarea>
+      <form onSubmit={handleAddCard}>
+          <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
           <div id="addFormOptions">
             <div>
               <label>Foil</label>
-              <input type="checkbox"></input>
+              <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
             </div>
             <div>
               <label>Full Art</label>
-              <input type="checkbox"></input>
+              <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
             </div>
             <div>
               <label>Condition</label>
-              <select required>
+              <select name="condition" value={formData.condition} onChange={handleChange} required>
                 <option value="">Select a Condition</option>
                 <option value="Near Mint">Near Mint</option>
                 <option value="Lightly Played">Lightly Played</option>
@@ -71,9 +118,8 @@ function Search() {
             </div>
           </div>
           <input type="submit" value="Add Card"></input>
-        </form> */}
+        </form>
     </div>
+    </>
   );
 }
-
-export default Search;
