@@ -60,6 +60,21 @@
       "full_art": false,
       "condition": "Moderately Played",
       "id": 4
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/6/7/67198b97-bac2-480f-aea8-12841e8884de.jpg?1782685604",
+      "backImg": "",
+      "name": "Karplusan Forest",
+      "type": "Land",
+      "artist": "Sam Burley",
+      "set": "Edge of Eternities Commander",
+      "description": "{T}: Add {C}. {T}: Add {R} or {G}. This land deals 1 damage to you.",
+      "flavor_text": "Between jagged, snowcapped peaks, the dense bands of hardy evergreens provide the perfect cover for roving bands of orc and goblin raiders.",
+      "comment": "pwetty fwicken neat",
+      "foil": true,
+      "full_art": false,
+      "condition": "Moderately Played",
+      "id": 5
     }
   ],
   "audits": []

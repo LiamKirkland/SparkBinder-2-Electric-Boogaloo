@@ -1,20 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Display({card}) {
-  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art} = card
-  const [showBack, setShowBack] = useState(false)
-
-  useEffect(() => {
-    setShowBack(false)
-  }, [card])
-
-  const displayImg = showBack ? backImg : img
-
-  function handleSubmit(e) {
-    e.preventDefault()
-  }
-
-  const MANA_CLASS_OVERRIDES = {
+const MANA_CLASS_OVERRIDES = {
   T: "tap",
   Q: "untap",
   CHAOS: "chaos",
@@ -42,6 +28,20 @@ function manaify(text) {
   })
 }
 
+export default function Display({card}) {
+  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art} = card
+  const [showBack, setShowBack] = useState(false)
+
+  useEffect(() => {
+    setShowBack(false)
+  }, [card])
+
+  const displayImg = showBack ? backImg : img
+
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
+
   return (
     <div id="displayDiv">
       <div>
@@ -54,7 +54,7 @@ function manaify(text) {
         <div><b>Type: </b>{type}</div>
         <div><b>Artist: </b>{artist}</div>
         <div><b>Set: </b>{set ? set : "None."}</div>
-        <div><b>Description: </b>{description ? description : "None."}</div>
+        <div><b>Description: </b>{description ? <span dangerouslySetInnerHTML={{ __html: manaify(description) }} /> : "None."}</div>
         <div><b>Flavor Text: </b>{flavor_text ? flavor_text : "None."}</div>
         {condition ? 
         <>
