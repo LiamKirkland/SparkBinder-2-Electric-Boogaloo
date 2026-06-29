@@ -10,7 +10,7 @@ User story: As a user, I want to view the specifics of a card from the search by
 *Details: Either a GET from [scryfall](https://scryfall.com/docs/api/cards/id)'s API using the ID given by the above search, or store the data on the component to reduce the API calls.*
 
 ### Feature 3 - Add Card to Collection & Display User's Card Collection
-User story: As a user, I want to add cards to my collection. Additionally, I would like to add custom attributes. I want to be able to navigate to the collection through a NavBar and see my current collection. 
+User story: As a user, I want to add cards to my collection. Additionally, I would like to add custom attributes. I want to be able to navigate to the collection through a NavBar and see my current collection.  
 *Details: Add a form that accepts the custom attributes. On submit, add the card and it's attributes to the collection. Build out the Collection Page to display cards within the collection. Allow users to click on cards from their collection to view their details.*
 
 ### Feature 4 - Update or Delete Cards in Collection
