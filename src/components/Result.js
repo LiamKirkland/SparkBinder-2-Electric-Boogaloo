@@ -1,8 +1,6 @@
 export default function Result({card, onSetSelected}) {
-  console.log(card)
   const clickedCard = (() => {
     if (card.img) {
-      console.log("this is a collection card")
       return {
         img: card.img,
         backImg: card.backImg,
@@ -13,9 +11,13 @@ export default function Result({card, onSetSelected}) {
         set: card.set,
         description: card.description,
         flavor_text: card.flavor_text,
+        foil: card.foil,
+        full_art: card.full_art,
+        comment: card.comment,
+        condition: card.condition,
+        id: card.id
       }
     } else {
-      console.log("this is a search card")
       const front = card.card_faces?.[0] ?? {}
       const back = card.card_faces?.[1] ?? {}
 
@@ -49,8 +51,8 @@ export default function Result({card, onSetSelected}) {
 
   return (
     <li onClick={handleClick}>
-      <img src={(card.image_uris ?? front.image_uris).normal ?? card.img} />
-      <div>{card.flavor_name && card.flavor_name !== card.name ? card.flavor_name : card.name}</div>
+      <img src={clickedCard.img} />
+      <div>{clickedCard.flavor_name && clickedCard.flavor_name !== clickedCard.name ? clickedCard.flavor_name : clickedCard.name}</div>
     </li>
   )
 }
