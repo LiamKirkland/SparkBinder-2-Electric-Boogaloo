@@ -1,3 +1,5 @@
+import Card from "./Card"
+
 export default function Audit({ audit }) {
   const { action, card, id, new_state, timestamp} = audit
   
@@ -36,7 +38,7 @@ export default function Audit({ audit }) {
   return (
     <div className={`auditDiv auditDiv--${actionClass}`}>
       <div>
-        <img src={card.img}/>
+        <Card image={card.img} />
         <p>{card.flavor_name ?? card.name}</p>
       </div>
       <div>

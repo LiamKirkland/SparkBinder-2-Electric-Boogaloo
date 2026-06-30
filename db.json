@@ -1,6 +1,42 @@
 {
   "collection": [
+    {
+      "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
+      "backImg": "",
+      "name": "Aspect of Hydra",
+      "type": "Instant",
+      "artist": "Mark Winters",
+      "set": "Born of the Gods",
+      "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+      "flavor_text": "\"Even alone I outnumber you.\"",
+      "comment": "Cool card :D",
+      "foil": true,
+      "full_art": false,
+      "condition": "Near Mint",
+      "id": 1
+    }
   ],
   "audits": [
+    {
+      "timestamp": "6/30/2026, 2:18:32 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
+        "backImg": "",
+        "name": "Aspect of Hydra",
+        "type": "Instant",
+        "artist": "Mark Winters",
+        "set": "Born of the Gods",
+        "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+        "flavor_text": "\"Even alone I outnumber you.\""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "Cool card :D",
+        "foil": true,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 1
+    }
   ]
 }

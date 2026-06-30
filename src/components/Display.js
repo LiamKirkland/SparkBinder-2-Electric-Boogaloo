@@ -1,5 +1,6 @@
 import { Children, useEffect, useState } from "react";
 import { auditURL, collURL } from "../constraints";
+import Card from "./Card";
 
 //This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
 const MANA_CLASS_OVERRIDES = {
@@ -168,7 +169,7 @@ export default function Display({ card, children, onSetCollection }) {
   return (
     <div id="displayDiv">
       <div className="displayLeft">
-        <img id="displayImg" src={displayImg}/>
+        <Card image={displayImg} />
         {backImg ? <button className="flipBtn" onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
       <div className="displayRight">
