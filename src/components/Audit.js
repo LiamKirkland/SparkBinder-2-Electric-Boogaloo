@@ -1,10 +1,17 @@
 export default function Audit({ audit }) {
   const { action, card, id, new_state, timestamp} = audit
-
-  const actionClass = action.toLowerCase().includes("added") ? "add"
-    : action.toLowerCase().includes("updated") ? "update"
-    : action.toLowerCase().includes("removed") ? "delete"
-    : ""
+  
+  const actionClass = (() => {
+    if(action.toLowerCase().includes("added")) {
+      return "add"
+    } else if(action.toLowerCase().includes("updated")) {
+      return "update"
+    } else if(action.toLowerCase().includes("removed")) {
+      return "delete"
+    } else {
+      return ""
+    }
+  })()
 
   const changes = (() => {
     if(actionClass === "update") {
