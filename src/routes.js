@@ -1,5 +1,6 @@
-import Collection from "./Collection";
-import Search from "./Search";
+import Collection from "./Pages/Collection";
+import Search from "./Pages/Search";
+import Audits from "./Pages/Audits";
 
 export const routes = [
   {
@@ -9,5 +10,9 @@ export const routes = [
   {
     path: '/collection',
     element: <Collection />
+  },
+  {
+    path: '/audits',
+    element: <Audits />
   }
 ]

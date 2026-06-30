@@ -87,7 +87,7 @@ export default function Display({ card, children, onSetCollection }) {
       }
     })
   }
-  console.log(formData)
+  
   const custAttributes = (() => {
     if (editMode) {
       return (

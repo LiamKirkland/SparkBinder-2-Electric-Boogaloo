@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { scryURL, collURL, auditURL } from "./constraints";
-import Result from "./components/Result";
-import Display from "./components/Display";
-import NavBar from "./components/NavBar";
+import { scryURL, collURL, auditURL } from "../constraints";
+import Result from "../components/Result";
+import Display from "../components/Display";
+import NavBar from "../components/NavBar";
 
 const placeholderCard = {
   img : "/placeholder.jpg",
@@ -63,8 +63,9 @@ export default function Search() {
 
   function handleAddCard(e) {
     e.preventDefault()
-
-    if (formData.img === "/placeholder.jpg") {
+    console.log(selectedCard)
+    if (selectedCard.img === "/placeholder.jpg") {
+      setFormData(blankFormState)
       alert("Search for and select a card to add it to your collection!")
     } else {
       fetch(collURL, {
@@ -78,7 +79,7 @@ export default function Search() {
       .then(setFormData(blankFormState))
     }
   }
-  console.log(cardResults)
+  
   return (
     <>
     <header>
