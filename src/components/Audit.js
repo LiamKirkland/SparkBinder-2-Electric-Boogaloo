@@ -14,9 +14,13 @@ export default function Audit({ audit }) {
     }
   })()
 
-  console.log(changes)
+  const actionClass = action.toLowerCase().includes("added") ? "add"
+    : action.toLowerCase().includes("updated") ? "update"
+    : action.toLowerCase().includes("removed") ? "delete"
+    : ""
+
   return (
-    <div className={`auditDiv auditDiv--${action}`}>
+    <div className={`auditDiv auditDiv--${actionClass}`}>
       <div>
         <img src={card.img}/>
         <p>{card.flavor_name ?? card.name}</p>
