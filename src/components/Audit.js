@@ -16,7 +16,7 @@ export default function Audit({ audit }) {
 
   console.log(changes)
   return (
-    <div className="auditDiv">
+    <div className={`auditDiv auditDiv--${action}`}>
       <div>
         <img src={card.img}/>
         <p>{card.flavor_name ?? card.name}</p>
@@ -24,11 +24,13 @@ export default function Audit({ audit }) {
       <div>
         <p>{action}</p>
         <p>{timestamp}</p>
-        {changes ? changes.map(change => {
-          return (
-            <p>{change.att}: {change.update}</p>
-          )
-        }) : null}
+        {changes ? (
+          <div className="auditChanges">
+            {changes.map(change => (
+              <p key={change.att}>{change.att}: {change.update}</p>
+            ))}
+          </div>
+        ) : null}
       </div>
     </div>
   )
