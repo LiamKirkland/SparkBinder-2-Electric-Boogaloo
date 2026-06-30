@@ -1,14 +1,19 @@
-export default function Card({ image }) {
-  const tiltSettings = {
-    max: 25,
-    perspective: 1000,
-    scale: 1.05,
-    foilShift: 35,
-  }
+import { useRef } from "react"
+
+const tiltSettings = {
+  max: 20,
+  perspective: 1000,
+  scale: 1.03,
+  foilShift: 40,
+}
+
+export default function Card({ image, isFoil }) {
+  const cardRef = useRef(null)
+  const foilRef = useRef(null)
 
   function cardMouseEnter(event) {
     setTransition(event.currentTarget)
-    if (event.currentTarget === collWrapper) setTransition(foilOverlay)
+    if (isFoil) setTransition(foilRef.current)
   }
 
   function cardMouseMove(event) {
@@ -23,10 +28,10 @@ export default function Card({ image }) {
 
     card.style.transform = `perspective(${tiltSettings.perspective}px) rotateX(${tiltSettings.max * rotateX}deg) rotateY(${-tiltSettings.max * rotateY}deg) scale3d(${tiltSettings.scale}, ${tiltSettings.scale}, ${tiltSettings.scale})`
 
-    if (card === collWrapper) {
+    if (isFoil && foilRef.current) {
       const foilX = 20 - rotateX * (tiltSettings.foilShift / 2)
       const foilY = 20 - rotateY * (tiltSettings.foilShift / 2)
-      foilOverlay.style.objectPosition = `${foilX}% ${foilY}%`
+      foilRef.current.style.backgroundPosition = `${foilX}% ${foilY}%`
     }
   }
 
@@ -34,10 +39,10 @@ export default function Card({ image }) {
     setTransition(event.currentTarget)
     event.currentTarget.style.transform = `perspective(${tiltSettings.perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`
 
-    if (event.currentTarget === collWrapper) {
-      setTransition(foilOverlay)
-      foilOverlay.style.transform = `translate3d(0, 0, 1px)`
-      foilOverlay.style.objectPosition = "20% 20%"
+    if (isFoil && foilRef.current) {
+      setTransition(foilRef.current)
+      foilRef.current.style.transform = `translate3d(0, 0, 1px)`
+      foilRef.current.style.backgroundPosition = "20% 20%"
     }
   }
 
@@ -51,8 +56,13 @@ export default function Card({ image }) {
   }
 
   return (
-    <div className="card-wrapper">
-      <img className="foilOverlay" src="/foilOverlay.png" onMouseEnter={cardMouseEnter} onMouseMove={cardMouseMove} onMouseLeave={cardMouseLeave}/>
+    <div
+      className="card-wrapper"
+      ref={cardRef}
+      onMouseEnter={cardMouseEnter}
+      onMouseMove={cardMouseMove}
+      onMouseLeave={cardMouseLeave} >
+      {isFoil && <div className="foilOverlay" ref={foilRef} />}
       <img className="cardImage" src={image} />
     </div>
   )

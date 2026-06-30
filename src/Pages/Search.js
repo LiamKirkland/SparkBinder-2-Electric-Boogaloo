@@ -109,7 +109,7 @@ export default function Search() {
       <ul id="searchResults">
         {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
       </ul>
-      <Display card={selectedCard}>
+      <Display card={selectedCard} isFoil={formData.foil}>
         <form id="addForm" onSubmit={handleAddCard}>
             <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
             <div id="addFormOptions">

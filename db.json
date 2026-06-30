@@ -106,6 +106,159 @@
         "condition": "Damaged"
       },
       "id": 5
+    },
+    {
+      "timestamp": "6/30/2026, 3:08:56 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/2/9/29515c55-3b48-4c1d-a10b-b27fd1eb7a93.jpg?1782683169",
+        "backImg": "",
+        "name": "Primordial Hydra",
+        "type": "Creature — Hydra",
+        "artist": "Aleksi Briclot",
+        "set": "Secrets of Strixhaven Commander",
+        "description": "This creature enters with X +1/+1 counters on it. At the beginning of your upkeep, double the number of +1/+1 counters on this creature. This creature has trample as long as it has ten or more +1/+1 counters on it.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 6
+    },
+    {
+      "timestamp": "6/30/2026, 3:09:06 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/2/9/29515c55-3b48-4c1d-a10b-b27fd1eb7a93.jpg?1782683169",
+        "backImg": "",
+        "name": "Primordial Hydra",
+        "type": "Creature — Hydra",
+        "artist": "Aleksi Briclot",
+        "set": "Secrets of Strixhaven Commander",
+        "description": "This creature enters with X +1/+1 counters on it. At the beginning of your upkeep, double the number of +1/+1 counters on this creature. This creature has trample as long as it has ten or more +1/+1 counters on it.",
+        "flavor_text": "",
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played",
+        "id": 3
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 7
+    },
+    {
+      "timestamp": "6/30/2026, 3:09:16 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/2/9/29515c55-3b48-4c1d-a10b-b27fd1eb7a93.jpg?1782683169",
+        "backImg": "",
+        "name": "Primordial Hydra",
+        "type": "Creature — Hydra",
+        "artist": "Aleksi Briclot",
+        "set": "Secrets of Strixhaven Commander",
+        "description": "This creature enters with X +1/+1 counters on it. At the beginning of your upkeep, double the number of +1/+1 counters on this creature. This creature has trample as long as it has ten or more +1/+1 counters on it.",
+        "flavor_text": "",
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played",
+        "id": 3
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 8
+    },
+    {
+      "timestamp": "6/30/2026, 3:09:18 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/2/9/29515c55-3b48-4c1d-a10b-b27fd1eb7a93.jpg?1782683169",
+        "backImg": "",
+        "name": "Primordial Hydra",
+        "type": "Creature — Hydra",
+        "artist": "Aleksi Briclot",
+        "set": "Secrets of Strixhaven Commander",
+        "description": "This creature enters with X +1/+1 counters on it. At the beginning of your upkeep, double the number of +1/+1 counters on this creature. This creature has trample as long as it has ten or more +1/+1 counters on it.",
+        "flavor_text": "",
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played",
+        "id": 3
+      },
+      "action": "Card Removed from Collection",
+      "new_state": {
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 9
+    },
+    {
+      "timestamp": "6/30/2026, 3:21:11 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/4/8/48b25568-46e9-4f4e-a4b5-7f371314e49e.jpg?1782729900",
+        "backImg": "",
+        "name": "Azusa, Lost but Seeking",
+        "flavor_name": "Miku, Lost but Singing",
+        "type": "Legendary Creature — Human Monk",
+        "artist": "Jehan Choo",
+        "set": "Secret Lair Drop",
+        "description": "You may play two additional lands on each of your turns.",
+        "flavor_text": "\"With every step, I discover a new stage. With every breath, a new song.\"",
+        "comment": "Miku dayo!",
+        "foil": true,
+        "full_art": true,
+        "condition": "Near Mint",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "Miku dayo!",
+        "foil": false,
+        "full_art": true,
+        "condition": "Near Mint"
+      },
+      "id": 10
+    },
+    {
+      "timestamp": "6/30/2026, 3:21:14 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/4/8/48b25568-46e9-4f4e-a4b5-7f371314e49e.jpg?1782729900",
+        "backImg": "",
+        "name": "Azusa, Lost but Seeking",
+        "flavor_name": "Miku, Lost but Singing",
+        "type": "Legendary Creature — Human Monk",
+        "artist": "Jehan Choo",
+        "set": "Secret Lair Drop",
+        "description": "You may play two additional lands on each of your turns.",
+        "flavor_text": "\"With every step, I discover a new stage. With every breath, a new song.\"",
+        "comment": "Miku dayo!",
+        "foil": false,
+        "full_art": true,
+        "condition": "Near Mint",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "Miku dayo!",
+        "foil": true,
+        "full_art": true,
+        "condition": "Near Mint"
+      },
+      "id": 11
     }
   ]
 }

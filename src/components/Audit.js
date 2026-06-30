@@ -34,11 +34,11 @@ export default function Audit({ audit }) {
       })
     }
   })()
-
+  
   return (
     <div className={`auditDiv auditDiv--${actionClass}`}>
       <div>
-        <Card image={card.img} />
+        <Card image={card.img} isFoil={new_state.foil}/>
         <p>{card.flavor_name ?? card.name}</p>
       </div>
       <div>

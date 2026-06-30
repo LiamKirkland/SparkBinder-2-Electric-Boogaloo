@@ -34,7 +34,7 @@ function manaify(text) {
 
 
 
-export default function Display({ card, children, onSetCollection }) {
+export default function Display({ card, children, onSetCollection, isFoil }) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
   const [showBack, setShowBack] = useState(false)
   const [editMode, setEditMode] = useState(false)
@@ -169,7 +169,7 @@ export default function Display({ card, children, onSetCollection }) {
   return (
     <div id="displayDiv">
       <div className="displayLeft">
-        <Card image={displayImg} />
+        <Card image={displayImg} isFoil={formData.foil ?? isFoil}/>
         {backImg ? <button className="flipBtn" onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
       <div className="displayRight">
