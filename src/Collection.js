@@ -6,19 +6,20 @@ import Display from "./components/Display";
 
 export default function Collection() {
   const [collectionCards, setCollectionCards] = useState([])
-  const [selectedCard, setSelectedCard] = useState()
+  const [selectedCardId, setSelectedCardId] = useState()
+  const selectedCard = collectionCards.find(card => card.id === selectedCardId) ?? collectionCards[0]
 
   useEffect(() => {
     fetch(collURL)
     .then(res => res.json())
     .then(data => {
       setCollectionCards(data)
-      setSelectedCard(data[0])
+      setSelectedCardId(data[0].id)
     })
   }, [])
 
   function handleClick(clickedCard) {
-    setSelectedCard(clickedCard)
+    setSelectedCardId(clickedCard.id)
   }
 
   if (collectionCards.length === 0) {
@@ -31,7 +32,6 @@ export default function Collection() {
       </>
     )
   }
-  
   return (
     <>
       <header>

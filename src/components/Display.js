@@ -35,19 +35,14 @@ function manaify(text) {
 
 export default function Display({ card, children, onSetCollection }) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
-  const defaultForm = {
-    condition: condition,
-    foil: foil,
-    full_art: full_art,
-    comment: comment
-  }
-
   const [showBack, setShowBack] = useState(false)
   const [editMode, setEditMode] = useState(false)
-  const [formData, setFormData] = useState(defaultForm)
+  const [formData, setFormData] = useState({condition, foil, full_art, comment})
 
   useEffect(() => {
     setShowBack(false)
+    setEditMode(false)
+    setFormData({condition, foil, full_art, comment})
   }, [card])
 
   const displayImg = showBack ? backImg : img
@@ -66,14 +61,20 @@ export default function Display({ card, children, onSetCollection }) {
         return card.id === id ? updatedCard : card
       }))
       setEditMode(false)
-      setFormData(defaultForm)
     })
   }
 
   function handleCancel(e) {
     e.preventDefault()
-    setFormData(defaultForm)
+    setFormData({condition, foil, full_art, comment})
     setEditMode(false)
+  }
+
+  function handleDelete() {
+    if (window.confirm("Are you sure you want to delete this card from your collection? This action cannot be undone.")) {
+      fetch(`${collURL}/${id}`, {method: 'DELETE'})
+      .then(onSetCollection(prevColl => prevColl.filter(card => card.id !== id)))
+    }
   }
 
   function handleChange(e) {
@@ -86,7 +87,7 @@ export default function Display({ card, children, onSetCollection }) {
       }
     })
   }
-
+  console.log(formData)
   const custAttributes = (() => {
     if (editMode) {
       return (
@@ -123,13 +124,13 @@ export default function Display({ card, children, onSetCollection }) {
     } else {
       return (
         <>
-          <div><b>Condition: </b>{condition}</div>
-          <div><b>Foil: </b>{foil ? "Yes" : "No"}</div>
-          <div><b>Full Art: </b>{full_art ? "Yes" : "No"}</div>
-          <div><b>Comment: </b>{comment ? comment : "None."}</div>
+          <div><b>Condition: </b>{formData.condition}</div>
+          <div><b>Foil: </b>{formData.foil ? "Yes" : "No"}</div>
+          <div><b>Full Art: </b>{formData.full_art ? "Yes" : "No"}</div>
+          <div><b>Comment: </b>{formData.comment ? formData.comment : "None."}</div>
           <div>
             <button onClick={() => setEditMode(true)}>Update</button>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
           </div>
         </>
       )
