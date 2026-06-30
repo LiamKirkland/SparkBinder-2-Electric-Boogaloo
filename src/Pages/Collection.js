@@ -28,6 +28,7 @@ export default function Collection() {
         <header>
           <NavBar />
         </header>
+        <hr></hr>
         <h1>Add cards to your collection to view them here!</h1>
       </>
     )

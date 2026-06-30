@@ -100,6 +100,7 @@ export default function Search() {
     <header>
       <NavBar />
     </header>
+      <hr></hr>
     <div>
       <form id="searchForm" onSubmit={handleSearch}>
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
@@ -108,7 +109,6 @@ export default function Search() {
       <ul id="searchResults">
         {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
       </ul>
-      <hr></hr>
       <Display card={selectedCard}>
         <form id="addForm" onSubmit={handleAddCard}>
             <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
