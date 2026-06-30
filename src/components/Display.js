@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
+import { collURL } from "../constraints";
 
+//This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
 const MANA_CLASS_OVERRIDES = {
   T: "tap",
   Q: "untap",
@@ -27,8 +29,9 @@ function manaify(text) {
     return `<i class="ms ms-${cls} ms-cost ms-shadow"></i>`
   })
 }
+// Manaify ^
 
-export default function Display({card}) {
+export default function Display({ card, children }) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art} = card
   const [showBack, setShowBack] = useState(false)
 
@@ -44,11 +47,11 @@ export default function Display({card}) {
 
   return (
     <div id="displayDiv">
-      <div>
-        <img src={displayImg}/>
-        {backImg ? <button onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
+      <div className="displayLeft">
+        <img id="displayImg" src={displayImg}/>
+        {backImg ? <button className="flipBtn" onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
-      <div>
+      <div className="displayRight">
         <div><b>{flavor_name && flavor_name !== name ? `${flavor_name} (${name})` : name}</b></div>
         <hr></hr>
         <div><b>Type: </b>{type}</div>
@@ -62,9 +65,13 @@ export default function Display({card}) {
           <div><b>Foil: </b>{foil ? "Yes" : "No"}</div>
           <div><b>Full Art: </b>{full_art ? "Yes" : "No"}</div>
           <div><b>Comment: </b>{comment ? comment : "None."}</div>
+          <div>
+            <button>Update</button>
+            <button>Delete</button>
+          </div>
         </>
         : null}
-        <hr></hr>
+        {children}
       </div>
     </div>
   )

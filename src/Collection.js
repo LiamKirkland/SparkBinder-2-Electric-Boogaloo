@@ -21,8 +21,15 @@ export default function Collection() {
     setSelectedCard(clickedCard)
   }
 
-  if(collectionCards.length === 0) {
-    return <h1>Add cards to your collection to view them here!</h1>
+  if (collectionCards.length === 0) {
+    return (
+      <>
+        <header>
+          <NavBar />
+        </header>
+        <h1>Add cards to your collection to view them here!</h1>
+      </>
+    )
   }
   
   return (
