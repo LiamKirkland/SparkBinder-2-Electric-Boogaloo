@@ -57,6 +57,7 @@ export default function Search() {
         const cards = queryRes.data
         setCardResults([...cards.slice(0, 10)])
         setSelectedCard(placeholderCard)
+        setFormData(blankFormState)
       }
     })
   }

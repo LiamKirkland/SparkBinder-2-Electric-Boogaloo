@@ -30,6 +30,156 @@
       "full_art": false,
       "condition": "Lightly Played",
       "id": 2
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/e/5/e5ead59f-4c09-4b56-913e-4ff5d6d48ac2.jpg?1782724407",
+      "backImg": "",
+      "name": "Appa, the Vigilant",
+      "type": "Legendary Creature — Bison Ally",
+      "artist": "Fahmi Fauzi",
+      "set": "Avatar: The Last Airbender Eternal",
+      "description": "Flying, vigilance, Whenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
+      "flavor_text": "",
+      "comment": "",
+      "foil": false,
+      "full_art": true,
+      "condition": "Lightly Played",
+      "id": 3
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/5/a/5a74175b-2418-4226-8435-1490532e644f.jpg?1782681662",
+      "backImg": "",
+      "name": "Island",
+      "type": "Basic Land — Island",
+      "artist": "Raymond Bonilla",
+      "set": "Marvel Super Heroes",
+      "description": "({T}: Add {U}.)",
+      "flavor_text": "",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Heavily Played",
+      "id": 4
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/6/a/6aa85af8-15f5-4620-8aea-0b45c28372ed.jpg?1782705388",
+      "backImg": "",
+      "name": "Snow-Covered Swamp",
+      "type": "Basic Snow Land — Swamp",
+      "artist": "Adam Paquette",
+      "set": "Kaldheim",
+      "description": "({T}: Add {B}.)",
+      "flavor_text": "",
+      "comment": "",
+      "foil": true,
+      "full_art": false,
+      "condition": "Near Mint",
+      "id": 5
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/7/c/7c0380a4-225f-4a80-8c8b-d0f7e54f1626.jpg?1782705908",
+      "backImg": "",
+      "name": "Brass Herald",
+      "type": "Artifact Creature — Golem",
+      "artist": "Daren Bader",
+      "set": "Commander Legends",
+      "description": "As this creature enters, choose a creature type. When this creature enters, reveal the top four cards of your library. Put all creature cards of the chosen type revealed this way into your hand and the rest on the bottom of your library in any order. Creatures of the chosen type get +1/+1.",
+      "flavor_text": "",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Lightly Played",
+      "id": 6
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/7/0/70cf8d2b-5220-4fe9-b39d-6700f0b27cca.jpg?1782703329",
+      "backImg": "",
+      "name": "Donal, Herald of Wings",
+      "type": "Legendary Creature — Human Wizard",
+      "artist": "Wayne Reynolds",
+      "set": "Crimson Vow Commander",
+      "description": "Whenever you cast a nonlegendary creature spell with flying, you may copy it, except the copy is a 1/1 Spirit in addition to its other types. Do this only once each turn. (The copy becomes a token.)",
+      "flavor_text": "He sees a flicker of Avacyn's grace in every wingbeat.",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Heavily Played",
+      "id": 7
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/2/1/213e530e-33a9-4358-b43b-4a276a7e7190.jpg?1782700935",
+      "backImg": "",
+      "name": "Faldorn, Dread Wolf Herald",
+      "type": "Legendary Creature — Human Druid",
+      "artist": "Jason A. Engle",
+      "set": "Commander Legends: Battle for Baldur's Gate",
+      "description": "Whenever you cast a spell from exile or a land you control enters from exile, create a 2/2 green Wolf creature token. {1}, {T}, Discard a card: Exile the top card of your library. You may play it this turn.",
+      "flavor_text": "\"Cities are a blight on the beauty of nature.\"",
+      "comment": "blah",
+      "foil": true,
+      "full_art": false,
+      "condition": "Moderately Played",
+      "id": 8
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/a/8/a8041ade-5522-4f81-950c-7a610a28da00.jpg?1782744724",
+      "backImg": "",
+      "name": "Paper Tiger",
+      "type": "Artifact Creature — Cat",
+      "artist": "Heather Hudson",
+      "set": "Unsanctioned",
+      "description": "Creatures named Rock Lobster can't attack or block.",
+      "flavor_text": "The tiger is always quick to fold.",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Near Mint",
+      "id": 9
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1782698573",
+      "backImg": "https://cards.scryfall.io/normal/back/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1782698573",
+      "name": "A-Mischievous Catgeist // A-Catlike Curiosity",
+      "type": "Creature — Cat Spirit // Enchantment — Aura",
+      "artist": "Denman Rooke",
+      "set": "Innistrad: Crimson Vow",
+      "description": "Whenever Mischievous Catgeist deals combat damage to a player, draw a card. Disturb {1}{U} (You may cast this card from your graveyard transformed for its disturb cost.), // Enchant creature, Enchanted creature gets +1/+1. Enchanted creature has \"Whenever this creature deals combat damage to a player, draw a card.\", If Catlike Curiosity would be put into a graveyard from anywhere, exile it instead.",
+      "flavor_text": "",
+      "comment": "",
+      "foil": false,
+      "full_art": true,
+      "condition": "Lightly Played",
+      "id": 10
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/c/c/cc040492-7fb7-4fdb-aafe-8179e5f2b28c.jpg?1782704443",
+      "backImg": "",
+      "name": "Blink Dog",
+      "type": "Creature — Dog",
+      "artist": "Oriana Menendez",
+      "set": "Adventures in the Forgotten Realms",
+      "description": "Double strike, Teleport — {3}{W}: This creature phases out. (Treat it and anything attached to it as though they don't exist until your next turn.)",
+      "flavor_text": "Blink dogs protect the wild places of the world, driving away evil influences.",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Near Mint",
+      "id": 11
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/3/4/34c3979d-60e7-44b5-bb9f-1b6b0f2b70c3.jpg?1782737065",
+      "backImg": "",
+      "name": "Ancestral Hot Dog Minotaur",
+      "type": "Stickers",
+      "artist": "Larissa Hasenheit & Mina Jeon",
+      "set": "Unfinity Sticker Sheets",
+      "description": "{TK}{TK} — Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.), {TK}{TK}{TK} — Flying, {TK}{TK} — 1/4, {TK}{TK}{TK}{TK}{TK} — 8/6",
+      "flavor_text": "",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Moderately Played",
+      "id": 12
     }
   ],
   "audits": [
@@ -259,6 +409,216 @@
         "condition": "Near Mint"
       },
       "id": 11
+    },
+    {
+      "timestamp": "6/30/2026, 3:29:29 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/e/5/e5ead59f-4c09-4b56-913e-4ff5d6d48ac2.jpg?1782724407",
+        "backImg": "",
+        "name": "Appa, the Vigilant",
+        "type": "Legendary Creature — Bison Ally",
+        "artist": "Fahmi Fauzi",
+        "set": "Avatar: The Last Airbender Eternal",
+        "description": "Flying, vigilance, Whenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": true,
+        "condition": "Lightly Played"
+      },
+      "id": 12
+    },
+    {
+      "timestamp": "6/30/2026, 3:29:50 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/5/a/5a74175b-2418-4226-8435-1490532e644f.jpg?1782681662",
+        "backImg": "",
+        "name": "Island",
+        "type": "Basic Land — Island",
+        "artist": "Raymond Bonilla",
+        "set": "Marvel Super Heroes",
+        "description": "({T}: Add {U}.)",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Heavily Played"
+      },
+      "id": 13
+    },
+    {
+      "timestamp": "6/30/2026, 3:31:16 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/6/a/6aa85af8-15f5-4620-8aea-0b45c28372ed.jpg?1782705388",
+        "backImg": "",
+        "name": "Snow-Covered Swamp",
+        "type": "Basic Snow Land — Swamp",
+        "artist": "Adam Paquette",
+        "set": "Kaldheim",
+        "description": "({T}: Add {B}.)",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 14
+    },
+    {
+      "timestamp": "6/30/2026, 3:31:52 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/7/c/7c0380a4-225f-4a80-8c8b-d0f7e54f1626.jpg?1782705908",
+        "backImg": "",
+        "name": "Brass Herald",
+        "type": "Artifact Creature — Golem",
+        "artist": "Daren Bader",
+        "set": "Commander Legends",
+        "description": "As this creature enters, choose a creature type. When this creature enters, reveal the top four cards of your library. Put all creature cards of the chosen type revealed this way into your hand and the rest on the bottom of your library in any order. Creatures of the chosen type get +1/+1.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 15
+    },
+    {
+      "timestamp": "6/30/2026, 3:31:56 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/7/0/70cf8d2b-5220-4fe9-b39d-6700f0b27cca.jpg?1782703329",
+        "backImg": "",
+        "name": "Donal, Herald of Wings",
+        "type": "Legendary Creature — Human Wizard",
+        "artist": "Wayne Reynolds",
+        "set": "Crimson Vow Commander",
+        "description": "Whenever you cast a nonlegendary creature spell with flying, you may copy it, except the copy is a 1/1 Spirit in addition to its other types. Do this only once each turn. (The copy becomes a token.)",
+        "flavor_text": "He sees a flicker of Avacyn's grace in every wingbeat."
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Heavily Played"
+      },
+      "id": 16
+    },
+    {
+      "timestamp": "6/30/2026, 3:32:03 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/2/1/213e530e-33a9-4358-b43b-4a276a7e7190.jpg?1782700935",
+        "backImg": "",
+        "name": "Faldorn, Dread Wolf Herald",
+        "type": "Legendary Creature — Human Druid",
+        "artist": "Jason A. Engle",
+        "set": "Commander Legends: Battle for Baldur's Gate",
+        "description": "Whenever you cast a spell from exile or a land you control enters from exile, create a 2/2 green Wolf creature token. {1}, {T}, Discard a card: Exile the top card of your library. You may play it this turn.",
+        "flavor_text": "\"Cities are a blight on the beauty of nature.\""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "blah",
+        "foil": true,
+        "full_art": false,
+        "condition": "Moderately Played"
+      },
+      "id": 17
+    },
+    {
+      "timestamp": "6/30/2026, 3:33:34 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/a/8/a8041ade-5522-4f81-950c-7a610a28da00.jpg?1782744724",
+        "backImg": "",
+        "name": "Paper Tiger",
+        "type": "Artifact Creature — Cat",
+        "artist": "Heather Hudson",
+        "set": "Unsanctioned",
+        "description": "Creatures named Rock Lobster can't attack or block.",
+        "flavor_text": "The tiger is always quick to fold."
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 18
+    },
+    {
+      "timestamp": "6/30/2026, 3:33:43 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1782698573",
+        "backImg": "https://cards.scryfall.io/normal/back/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1782698573",
+        "name": "A-Mischievous Catgeist // A-Catlike Curiosity",
+        "type": "Creature — Cat Spirit // Enchantment — Aura",
+        "artist": "Denman Rooke",
+        "set": "Innistrad: Crimson Vow",
+        "description": "Whenever Mischievous Catgeist deals combat damage to a player, draw a card. Disturb {1}{U} (You may cast this card from your graveyard transformed for its disturb cost.), // Enchant creature, Enchanted creature gets +1/+1. Enchanted creature has \"Whenever this creature deals combat damage to a player, draw a card.\", If Catlike Curiosity would be put into a graveyard from anywhere, exile it instead.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": true,
+        "condition": "Lightly Played"
+      },
+      "id": 19
+    },
+    {
+      "timestamp": "6/30/2026, 3:33:58 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/c/c/cc040492-7fb7-4fdb-aafe-8179e5f2b28c.jpg?1782704443",
+        "backImg": "",
+        "name": "Blink Dog",
+        "type": "Creature — Dog",
+        "artist": "Oriana Menendez",
+        "set": "Adventures in the Forgotten Realms",
+        "description": "Double strike, Teleport — {3}{W}: This creature phases out. (Treat it and anything attached to it as though they don't exist until your next turn.)",
+        "flavor_text": "Blink dogs protect the wild places of the world, driving away evil influences."
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 20
+    },
+    {
+      "timestamp": "6/30/2026, 3:34:01 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/3/4/34c3979d-60e7-44b5-bb9f-1b6b0f2b70c3.jpg?1782737065",
+        "backImg": "",
+        "name": "Ancestral Hot Dog Minotaur",
+        "type": "Stickers",
+        "artist": "Larissa Hasenheit & Mina Jeon",
+        "set": "Unfinity Sticker Sheets",
+        "description": "{TK}{TK} — Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.), {TK}{TK}{TK} — Flying, {TK}{TK} — 1/4, {TK}{TK}{TK}{TK}{TK} — 8/6",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Moderately Played"
+      },
+      "id": 21
     }
   ]
 }
