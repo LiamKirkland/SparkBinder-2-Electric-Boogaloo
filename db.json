@@ -47,21 +47,6 @@
       "id": 3
     },
     {
-      "img": "https://cards.scryfall.io/normal/front/5/a/5a74175b-2418-4226-8435-1490532e644f.jpg?1782681662",
-      "backImg": "",
-      "name": "Island",
-      "type": "Basic Land — Island",
-      "artist": "Raymond Bonilla",
-      "set": "Marvel Super Heroes",
-      "description": "({T}: Add {U}.)",
-      "flavor_text": "",
-      "comment": "",
-      "foil": false,
-      "full_art": false,
-      "condition": "Heavily Played",
-      "id": 4
-    },
-    {
       "img": "https://cards.scryfall.io/normal/front/6/a/6aa85af8-15f5-4620-8aea-0b45c28372ed.jpg?1782705388",
       "backImg": "",
       "name": "Snow-Covered Swamp",
@@ -122,21 +107,6 @@
       "id": 8
     },
     {
-      "img": "https://cards.scryfall.io/normal/front/a/8/a8041ade-5522-4f81-950c-7a610a28da00.jpg?1782744724",
-      "backImg": "",
-      "name": "Paper Tiger",
-      "type": "Artifact Creature — Cat",
-      "artist": "Heather Hudson",
-      "set": "Unsanctioned",
-      "description": "Creatures named Rock Lobster can't attack or block.",
-      "flavor_text": "The tiger is always quick to fold.",
-      "comment": "",
-      "foil": false,
-      "full_art": false,
-      "condition": "Near Mint",
-      "id": 9
-    },
-    {
       "img": "https://cards.scryfall.io/normal/front/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1782698573",
       "backImg": "https://cards.scryfall.io/normal/back/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1782698573",
       "name": "A-Mischievous Catgeist // A-Catlike Curiosity",
@@ -180,6 +150,21 @@
       "full_art": false,
       "condition": "Moderately Played",
       "id": 12
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/9/4/942d9122-f380-4bc0-8bf1-2ba6f49fd3ee.jpg?1782698574",
+      "backImg": "https://cards.scryfall.io/normal/back/9/4/942d9122-f380-4bc0-8bf1-2ba6f49fd3ee.jpg?1782698574",
+      "name": "A-Lantern Bearer // A-Lanterns' Lift",
+      "type": "Creature — Spirit // Enchantment — Aura",
+      "artist": "Zoltan Boros",
+      "set": "Innistrad: Crimson Vow",
+      "description": "Flying, Disturb {1}{U} (You may cast this card from your graveyard transformed for its disturb cost.), // Enchant creature, Enchanted creature gets +1/+1 and has flying. If Lanterns' Lift would be put into a graveyard from anywhere, exile it instead.",
+      "flavor_text": "",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Lightly Played",
+      "id": 13
     }
   ],
   "audits": [
@@ -619,6 +604,79 @@
         "condition": "Moderately Played"
       },
       "id": 21
+    },
+    {
+      "timestamp": "6/30/2026, 3:38:27 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/4/942d9122-f380-4bc0-8bf1-2ba6f49fd3ee.jpg?1782698574",
+        "backImg": "https://cards.scryfall.io/normal/back/9/4/942d9122-f380-4bc0-8bf1-2ba6f49fd3ee.jpg?1782698574",
+        "name": "A-Lantern Bearer // A-Lanterns' Lift",
+        "type": "Creature — Spirit // Enchantment — Aura",
+        "artist": "Zoltan Boros",
+        "set": "Innistrad: Crimson Vow",
+        "description": "Flying, Disturb {1}{U} (You may cast this card from your graveyard transformed for its disturb cost.), // Enchant creature, Enchanted creature gets +1/+1 and has flying. If Lanterns' Lift would be put into a graveyard from anywhere, exile it instead.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 22
+    },
+    {
+      "timestamp": "6/30/2026, 3:39:20 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/a/8/a8041ade-5522-4f81-950c-7a610a28da00.jpg?1782744724",
+        "backImg": "",
+        "name": "Paper Tiger",
+        "type": "Artifact Creature — Cat",
+        "artist": "Heather Hudson",
+        "set": "Unsanctioned",
+        "description": "Creatures named Rock Lobster can't attack or block.",
+        "flavor_text": "The tiger is always quick to fold.",
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Near Mint",
+        "id": 9
+      },
+      "action": "Card Removed from Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 23
+    },
+    {
+      "timestamp": "6/30/2026, 3:39:24 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/5/a/5a74175b-2418-4226-8435-1490532e644f.jpg?1782681662",
+        "backImg": "",
+        "name": "Island",
+        "type": "Basic Land — Island",
+        "artist": "Raymond Bonilla",
+        "set": "Marvel Super Heroes",
+        "description": "({T}: Add {U}.)",
+        "flavor_text": "",
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Heavily Played",
+        "id": 4
+      },
+      "action": "Card Removed from Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Heavily Played"
+      },
+      "id": 24
     }
   ]
 }

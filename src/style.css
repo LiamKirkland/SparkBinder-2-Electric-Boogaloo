@@ -11,14 +11,6 @@ ul {
   gap: 20px;
 }
 
-li {
-  width: 10vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 li .cardImage {
   width: 100%;
   height: auto;
@@ -153,6 +145,20 @@ nav {
 
 #collPage .displayLeft {
   min-height: calc(clamp(180px, 25vw, 340px) * (7 / 5) + 48px);
+}
+
+#collResults {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#collResults li {
+  width: 100%;
+  min-width: 0;
 }
 
 #auditsPage {
