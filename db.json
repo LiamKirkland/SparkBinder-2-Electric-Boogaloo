@@ -1,42 +1,111 @@
 {
   "collection": [
     {
-      "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
+      "img": "https://cards.scryfall.io/normal/front/4/8/48b25568-46e9-4f4e-a4b5-7f371314e49e.jpg?1782729900",
       "backImg": "",
-      "name": "Aspect of Hydra",
-      "type": "Instant",
-      "artist": "Mark Winters",
-      "set": "Born of the Gods",
-      "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
-      "flavor_text": "\"Even alone I outnumber you.\"",
-      "comment": "Cool card :D",
+      "name": "Azusa, Lost but Seeking",
+      "flavor_name": "Miku, Lost but Singing",
+      "type": "Legendary Creature — Human Monk",
+      "artist": "Jehan Choo",
+      "set": "Secret Lair Drop",
+      "description": "You may play two additional lands on each of your turns.",
+      "flavor_text": "\"With every step, I discover a new stage. With every breath, a new song.\"",
+      "comment": "Miku dayo!",
       "foil": true,
-      "full_art": false,
+      "full_art": true,
       "condition": "Near Mint",
       "id": 1
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/9/3/93345804-dda4-42a2-84d4-8fcd376dd2d4.jpg?1782697700",
+      "backImg": "https://cards.scryfall.io/normal/back/9/3/93345804-dda4-42a2-84d4-8fcd376dd2d4.jpg?1782697700",
+      "name": "Invasion of Muraganda // Primordial Plasm",
+      "type": "Battle — Siege // Creature — Ooze",
+      "artist": "Adam Paquette",
+      "set": "March of the Machine",
+      "description": "(As a Siege enters, choose an opponent to protect it. You and others can attack it. When it's defeated, exile it, then cast it transformed.), When this Siege enters, put a +1/+1 counter on target creature you control. Then that creature fights up to one target creature you don't control. // At the beginning of combat on your turn, another target creature gets +2/+2 and loses all abilities until end of turn.",
+      "flavor_text": "",
+      "comment": "weally fwicken neat",
+      "foil": false,
+      "full_art": false,
+      "condition": "Lightly Played",
+      "id": 2
     }
   ],
   "audits": [
     {
-      "timestamp": "6/30/2026, 2:18:32 PM",
+      "timestamp": "6/30/2026, 2:42:42 PM",
       "card": {
-        "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
+        "img": "https://cards.scryfall.io/normal/front/4/8/48b25568-46e9-4f4e-a4b5-7f371314e49e.jpg?1782729900",
         "backImg": "",
-        "name": "Aspect of Hydra",
-        "type": "Instant",
-        "artist": "Mark Winters",
-        "set": "Born of the Gods",
-        "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
-        "flavor_text": "\"Even alone I outnumber you.\""
+        "name": "Azusa, Lost but Seeking",
+        "flavor_name": "Miku, Lost but Singing",
+        "type": "Legendary Creature — Human Monk",
+        "artist": "Jehan Choo",
+        "set": "Secret Lair Drop",
+        "description": "You may play two additional lands on each of your turns.",
+        "flavor_text": "\"With every step, I discover a new stage. With every breath, a new song.\""
       },
       "action": "Card Added to Collection",
       "new_state": {
-        "comment": "Cool card :D",
+        "comment": "Miku dayo!",
         "foil": true,
-        "full_art": false,
+        "full_art": true,
         "condition": "Near Mint"
       },
       "id": 1
+    },
+    {
+      "timestamp": "6/30/2026, 2:43:35 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/3/93345804-dda4-42a2-84d4-8fcd376dd2d4.jpg?1782697700",
+        "backImg": "https://cards.scryfall.io/normal/back/9/3/93345804-dda4-42a2-84d4-8fcd376dd2d4.jpg?1782697700",
+        "name": "Invasion of Muraganda // Primordial Plasm",
+        "type": "Battle — Siege // Creature — Ooze",
+        "artist": "Adam Paquette",
+        "set": "March of the Machine",
+        "description": "(As a Siege enters, choose an opponent to protect it. You and others can attack it. When it's defeated, exile it, then cast it transformed.), When this Siege enters, put a +1/+1 counter on target creature you control. Then that creature fights up to one target creature you don't control. // At the beginning of combat on your turn, another target creature gets +2/+2 and loses all abilities until end of turn.",
+        "flavor_text": "",
+        "comment": "Pwetty fwicken neat",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played",
+        "id": 2
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "weally fwicken neat",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 3
+    },
+    {
+      "timestamp": "6/30/2026, 2:44:00 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/b/c/bc6146bf-f0c6-4557-af6a-74c643d5fc01.jpg?1782684498",
+        "backImg": "",
+        "name": "Fire Lord Azula",
+        "type": "Legendary Creature — Human Noble",
+        "artist": "Fahmi Fauzi",
+        "set": "Avatar: The Last Airbender",
+        "description": "Firebending 2 (Whenever this creature attacks, add {R}{R}. This mana lasts until end of combat.), Whenever you cast a spell while Fire Lord Azula is attacking, copy that spell. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)",
+        "flavor_text": "\"I'm sorry it has to end this way, brother.\"",
+        "comment": "Removed by Zuko",
+        "foil": false,
+        "full_art": false,
+        "condition": "Damaged",
+        "id": 3
+      },
+      "action": "Card Removed from Collection",
+      "new_state": {
+        "comment": "Removed by Zuko",
+        "foil": false,
+        "full_art": false,
+        "condition": "Damaged"
+      },
+      "id": 5
     }
   ]
 }

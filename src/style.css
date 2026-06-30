@@ -19,10 +19,14 @@ li {
   text-align: center;
 }
 
-li img {
+li .cardImage {
   width: 100%;
   height: auto;
   display: block;
+}
+
+li .card-wrapper {
+  width: 100%;
 }
 
 li div {
@@ -46,10 +50,14 @@ li div {
   padding: 4px;
 }
 
-#searchResults li img {
+#searchResults li .cardImage {
   width: 100%;
   height: auto;
   display: block;
+}
+
+#searchResults li .card-wrapper {
+  width: 100%;
 }
 
 #searchResults li div {
@@ -198,10 +206,14 @@ nav {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.auditDiv img {
+.auditDiv .cardImage {
   width: 120px;
   height: auto;
   flex-shrink: 0;
+}
+
+.auditDiv .card-wrapper {
+  width: 120px;
 }
 
 .auditDiv p {
@@ -261,4 +273,26 @@ nav {
   padding: 3px 8px;
   font-family: monospace;
   word-break: break-all;
+}
+
+/* Card component */
+.card-wrapper {
+  position: relative;
+  display: inline-block; /* shrink-wraps to the image's natural size */
+}
+
+.cardImage {
+  display: block; /* removes inline bottom gap */
+  width: 100%;
+  height: auto;
+}
+
+.foilOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* clicks pass through to the card */
+  opacity: 30%;
 }
