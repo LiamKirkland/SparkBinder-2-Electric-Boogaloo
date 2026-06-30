@@ -1,23 +1,30 @@
 export default function Audit({ audit }) {
   const { action, card, id, new_state, timestamp} = audit
 
-  const changes = (() => {
-    if (new_state) {
-      const updatedKeys = Object.keys(new_state).filter(key => new_state[key] !== card[key])
-      
-      return updatedKeys.map((key) => {
-        return {
-          att: key[0].toUpperCase() + key.slice(1),
-          update: `${card[key]} ---> ${new_state[key]}`,
-        }
-      })
-    }
-  })()
-
   const actionClass = action.toLowerCase().includes("added") ? "add"
     : action.toLowerCase().includes("updated") ? "update"
     : action.toLowerCase().includes("removed") ? "delete"
     : ""
+
+  const changes = (() => {
+    if(actionClass === "update") {
+      const updatedKeys = Object.keys(new_state).filter(key => new_state[key] !== card[key])
+      
+      return updatedKeys.map((key) => {
+        return {
+          att: key.split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "),
+          update: `${card[key]} ---> ${new_state[key] !== "" ? new_state[key] : "None."}`,
+        }
+      })
+    } else {
+      return Object.keys(new_state).map((key) => {
+        return {
+          att: key.split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "),
+          update: `${new_state[key] !== "" ? new_state[key] : "None."}`,
+        }
+      })
+    }
+  })()
 
   return (
     <div className={`auditDiv auditDiv--${actionClass}`}>

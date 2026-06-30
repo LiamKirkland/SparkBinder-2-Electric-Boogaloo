@@ -147,7 +147,17 @@ nav {
   min-height: calc(clamp(180px, 25vw, 340px) * (7 / 5) + 48px);
 }
 
-/* ===== Audits Page ===== */
+#auditsPage {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+
+#auditsPage h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.6rem;
+}
 
 #auditsPage {
   display: flex;
@@ -161,97 +171,82 @@ nav {
   font-size: 1.6rem;
 }
 
-/* ===== Audit Component ===== */
+.auditDiv--add {
+  background-color: #d4edda;
+}
+
+.auditDiv--update {
+  background-color: #fff3cd;
+}
+
+.auditDiv--delete {
+  background-color: #f8d7da;
+}
+
+.auditDiv--delete .auditChanges{
+  text-decoration: line-through;
+}
 
 .auditDiv {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 16px;
-  padding: 12px 16px;
+  gap: 20px;
+  padding: 16px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .auditDiv img {
-  width: 80px;
+  width: 120px;
   height: auto;
   flex-shrink: 0;
 }
 
 .auditDiv p {
-  margin: 2px 0;
-  font-size: 0.9rem;
+  margin: 3px 0;
+  font-size: 1rem;
 }
 
-/* Card name under the image */
 .auditDiv > div:first-child {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 90px;
+  width: 130px;
   flex-shrink: 0;
 }
 
 .auditDiv > div:first-child p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   word-break: break-word;
 }
 
-/* Action / timestamp / changes side */
 .auditDiv > div:last-child {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   flex: 1;
   min-width: 0;
 }
 
-/* Action label (e.g. "updated", "added") */
 .auditDiv > div:last-child > p:first-child {
   font-weight: 700;
   text-transform: capitalize;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
-/* Timestamp */
 .auditDiv > div:last-child > p:nth-child(2) {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #666;
 }
-
-/* Change entries (e.g. "Flavor_name: old ---> new") */
-.auditDiv > div:last-child > p:nth-child(n+3) {
-  font-size: 0.85rem;
-  color: #444;
-  background: #f0f0f0;
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-family: monospace;
-  word-break: break-all;
-}
-
-.auditDiv--add {
-  background-color: #d4edda /* pastel green */
-}
-
-.auditDiv--update {
-  background-color: #fff3cd; /* pastel yellow */
-}
-
-.auditDiv--delete {
-  background-color: #f8d7da; /* pastel red */
-}
-
-/* ===== Change pills — fit to content ===== */
 
 .auditChanges {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* shrinks to content width */
+  align-items: flex-start;
   gap: 4px;
   margin-top: 4px;
 }
@@ -259,11 +254,11 @@ nav {
 .auditChanges p {
   display: inline-block;
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #444;
   background: #f0f0f0;
   border-radius: 4px;
-  padding: 2px 6px;
+  padding: 3px 8px;
   font-family: monospace;
   word-break: break-all;
 }

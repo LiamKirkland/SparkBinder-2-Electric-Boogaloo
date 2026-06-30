@@ -37,6 +37,7 @@ export default function Collection() {
       <header>
         <NavBar />
       </header>
+      <hr></hr>
       <div id="collPage">
         <Display card={selectedCard} onSetCollection={setCollectionCards}/>
         <ul id="collResults">

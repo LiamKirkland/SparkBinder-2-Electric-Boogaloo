@@ -17,6 +17,7 @@ export default function Audits() {
       <header>
         <NavBar />
       </header>
+      <hr></hr>
       <div id="auditsPage">
         <h1>This is the Audits Page</h1>
         {auditList.map(audit => <Audit audit={audit} key={audit.id}/>)}

@@ -37,12 +37,12 @@ export default function Display({ card, children, onSetCollection }) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
   const [showBack, setShowBack] = useState(false)
   const [editMode, setEditMode] = useState(false)
-  const [formData, setFormData] = useState({condition, foil, full_art, comment})
+  const [formData, setFormData] = useState({comment, foil, full_art, condition})
 
   useEffect(() => {
     setShowBack(false)
     setEditMode(false)
-    setFormData({condition, foil, full_art, comment})
+    setFormData({comment, foil, full_art, condition})
   }, [card])
 
   const displayImg = showBack ? backImg : img
@@ -81,7 +81,7 @@ export default function Display({ card, children, onSetCollection }) {
 
   function handleCancel(e) {
     e.preventDefault()
-    setFormData({condition, foil, full_art, comment})
+    setFormData({comment, foil, full_art, condition})
     setEditMode(false)
   }
 
@@ -95,7 +95,7 @@ export default function Display({ card, children, onSetCollection }) {
           timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
           card: card,
           action: "Card Removed from Collection",
-          new_state: null,
+          new_state: formData,
         }),
       })
 
@@ -173,7 +173,6 @@ export default function Display({ card, children, onSetCollection }) {
       </div>
       <div className="displayRight">
         <div><b>{flavor_name && flavor_name !== name ? `${flavor_name} (${name})` : name}</b></div>
-        <hr></hr>
         <div><b>Type: </b>{type}</div>
         <div><b>Artist: </b>{artist}</div>
         <div><b>Set: </b>{set ? set : "None."}</div>
