@@ -26,10 +26,6 @@ li div {
   word-wrap: break-word;
 }
 
-/* =====================
-   SEARCH RESULTS
-   ===================== */
-
 #searchResults {
   width: 100vw;
   box-sizing: border-box;
@@ -39,9 +35,9 @@ li div {
 }
 
 #searchResults li {
-  width: 9.9vw;        /* exactly 1/10th of the viewport — fixed regardless of result count */
-  flex-shrink: 0;     /* never compress below that size */
-  flex-grow: 0;       /* never stretch beyond it either */
+  width: 9.9vw;
+  flex-shrink: 0;
+  flex-grow: 0;
   box-sizing: border-box;
   padding: 4px;
 }
@@ -56,10 +52,6 @@ li div {
   font-size: clamp(0.5rem, 1vw, 0.85rem);
   overflow-wrap: anywhere;
 }
-
-/* =====================
-   DISPLAY COMPONENT
-   ===================== */
 
 #displayDiv {
   display: flex;
@@ -100,10 +92,6 @@ li div {
   min-width: 0;
 }
 
-/* =====================
-   ADD FORM
-   ===================== */
-
 #addForm {
   display: flex;
   flex-direction: column;
@@ -125,24 +113,16 @@ li div {
   align-items: center;
 }
 
-#addFormOptions > div {
+#addFormOptions>div {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-/* =====================
-   NAVBAR
-   ===================== */
-
 nav {
   display: flex;
   gap: 16px;
 }
-
-/* =====================
-   RESPONSIVE
-   ===================== */
 
 @media (max-width: 500px) {
   .displayLeft {
@@ -156,11 +136,9 @@ nav {
 }
 
 #collPage #displayDiv {
-  flex-shrink: 0; /* display area never collapses */
+  flex-shrink: 0;
 }
 
 #collPage .displayLeft {
-  /* Reserve enough vertical space for image + button so the button
-     appearing/disappearing never shifts the layout below */
   min-height: calc(clamp(180px, 25vw, 340px) * (7 / 5) + 48px);
 }
