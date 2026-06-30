@@ -137,21 +137,6 @@
       "id": 11
     },
     {
-      "img": "https://cards.scryfall.io/normal/front/3/4/34c3979d-60e7-44b5-bb9f-1b6b0f2b70c3.jpg?1782737065",
-      "backImg": "",
-      "name": "Ancestral Hot Dog Minotaur",
-      "type": "Stickers",
-      "artist": "Larissa Hasenheit & Mina Jeon",
-      "set": "Unfinity Sticker Sheets",
-      "description": "{TK}{TK} — Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.), {TK}{TK}{TK} — Flying, {TK}{TK} — 1/4, {TK}{TK}{TK}{TK}{TK} — 8/6",
-      "flavor_text": "",
-      "comment": "",
-      "foil": false,
-      "full_art": false,
-      "condition": "Moderately Played",
-      "id": 12
-    },
-    {
       "img": "https://cards.scryfall.io/normal/front/9/4/942d9122-f380-4bc0-8bf1-2ba6f49fd3ee.jpg?1782698574",
       "backImg": "https://cards.scryfall.io/normal/back/9/4/942d9122-f380-4bc0-8bf1-2ba6f49fd3ee.jpg?1782698574",
       "name": "A-Lantern Bearer // A-Lanterns' Lift",
@@ -677,6 +662,32 @@
         "condition": "Heavily Played"
       },
       "id": 24
+    },
+    {
+      "timestamp": "6/30/2026, 3:43:32 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/3/4/34c3979d-60e7-44b5-bb9f-1b6b0f2b70c3.jpg?1782737065",
+        "backImg": "",
+        "name": "Ancestral Hot Dog Minotaur",
+        "type": "Stickers",
+        "artist": "Larissa Hasenheit & Mina Jeon",
+        "set": "Unfinity Sticker Sheets",
+        "description": "{TK}{TK} — Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.), {TK}{TK}{TK} — Flying, {TK}{TK} — 1/4, {TK}{TK}{TK}{TK}{TK} — 8/6",
+        "flavor_text": "",
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Moderately Played",
+        "id": 12
+      },
+      "action": "Card Removed from Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Moderately Played"
+      },
+      "id": 25
     }
   ]
 }
