@@ -31,9 +31,20 @@ function manaify(text) {
 }
 // Manaify ^
 
-export default function Display({ card, children }) {
-  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art} = card
+
+
+export default function Display({ card, children, onSetCollection }) {
+  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
+  const defaultForm = {
+    condition: condition,
+    foil: foil,
+    full_art: full_art,
+    comment: comment
+  }
+
   const [showBack, setShowBack] = useState(false)
+  const [editMode, setEditMode] = useState(false)
+  const [formData, setFormData] = useState(defaultForm)
 
   useEffect(() => {
     setShowBack(false)
@@ -41,9 +52,89 @@ export default function Display({ card, children }) {
 
   const displayImg = showBack ? backImg : img
 
-  function handleSubmit(e) {
+  function handleSave(e) {
     e.preventDefault()
+
+    fetch(`${collURL}/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(updatedCard => {
+      onSetCollection(prevColl => prevColl.map(card => {
+        return card.id === id ? updatedCard : card
+      }))
+      setEditMode(false)
+      setFormData(defaultForm)
+    })
   }
+
+  function handleCancel(e) {
+    e.preventDefault()
+    setFormData(defaultForm)
+    setEditMode(false)
+  }
+
+  function handleChange(e) {
+    const {name, value, checked} = e.target
+
+    setFormData(prevData => {
+      return {
+        ...prevData,
+        [name]: checked ?? value
+      }
+    })
+  }
+
+  const custAttributes = (() => {
+    if (editMode) {
+      return (
+        <form id="updateForm">
+          <div>
+            <label><b>Condition: </b></label>
+            <select name="condition" value={formData.condition} onChange={handleChange} required>
+              <option value="">Select a Condition</option>
+              <option value="Near Mint">Near Mint</option>
+              <option value="Lightly Played">Lightly Played</option>
+              <option value="Moderately Played">Moderately Played</option>
+              <option value="Heavily Played">Heavily Played</option>
+              <option value="Damaged">Damaged</option>
+            </select>
+          </div>
+          <div>
+            <label><b>Foil: </b></label>
+            <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label><b>Full Art: </b></label>
+            <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label><b>Comment: </b></label>
+            <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
+          </div>
+          <div>
+            <button onClick={handleSave}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </div>
+        </form>
+      )
+    } else {
+      return (
+        <>
+          <div><b>Condition: </b>{condition}</div>
+          <div><b>Foil: </b>{foil ? "Yes" : "No"}</div>
+          <div><b>Full Art: </b>{full_art ? "Yes" : "No"}</div>
+          <div><b>Comment: </b>{comment ? comment : "None."}</div>
+          <div>
+            <button onClick={() => setEditMode(true)}>Update</button>
+            <button>Delete</button>
+          </div>
+        </>
+      )
+    }
+  })()
 
   return (
     <div id="displayDiv">
@@ -60,16 +151,7 @@ export default function Display({ card, children }) {
         <div><b>Description: </b>{description ? <span dangerouslySetInnerHTML={{ __html: manaify(description) }} /> : "None."}</div>
         <div><b>Flavor Text: </b>{flavor_text ? flavor_text : "None."}</div>
         {condition ? 
-        <>
-          <div><b>Condition: </b>{condition}</div>
-          <div><b>Foil: </b>{foil ? "Yes" : "No"}</div>
-          <div><b>Full Art: </b>{full_art ? "Yes" : "No"}</div>
-          <div><b>Comment: </b>{comment ? comment : "None."}</div>
-          <div>
-            <button>Update</button>
-            <button>Delete</button>
-          </div>
-        </>
+          custAttributes
         : null}
         {children}
       </div>

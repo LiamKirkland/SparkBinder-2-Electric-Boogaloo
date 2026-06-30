@@ -37,9 +37,9 @@ export default function Collection() {
       <header>
         <NavBar />
       </header>
-      <div>
-        <Display card={selectedCard} />
-        <ul>
+      <div id="collPage">
+        <Display card={selectedCard} onSetCollection={setCollectionCards}/>
+        <ul id="collResults">
           {collectionCards.map(card => <Result card={card} key={card.id} onSetSelected={handleClick} />)}
         </ul>
       </div>

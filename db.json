@@ -10,10 +10,10 @@
       "set": "Secret Lair Drop",
       "description": "Flying, Whenever you cast an instant or sorcery spell that targets a creature you control, exile that card instead of putting it into your graveyard as it resolves. If you do, return it to your hand at the beginning of the next end step.",
       "flavor_text": "\"Ooh, I love that song. Let's put it on repeat!\"",
-      "comment": "test",
-      "foil": true,
-      "full_art": false,
-      "condition": "Lightly Played",
+      "comment": "blah",
+      "foil": false,
+      "full_art": true,
+      "condition": "Heavily Played",
       "id": 1
     },
     {

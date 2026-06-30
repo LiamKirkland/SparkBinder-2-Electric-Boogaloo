@@ -89,7 +89,7 @@ export default function Search() {
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
         <input type="submit" value="Search"></input>
       </form>
-      <ul>
+      <ul id="searchResults">
         {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
       </ul>
       <hr></hr>
