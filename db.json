@@ -15,7 +15,45 @@
       "full_art": false,
       "condition": "Lightly Played",
       "id": 1
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/9/2/9243b872-c90f-4d25-9d8c-dbbcc8004a48.jpg?1782729906",
+      "backImg": "",
+      "name": "Chandra's Ignition",
+      "flavor_name": "Miku's Spark",
+      "type": "Sorcery",
+      "artist": "Justyna Dura",
+      "set": "Secret Lair Drop",
+      "description": "Target creature you control deals damage equal to its power to each other creature and each opponent.",
+      "flavor_text": "Sakura Miku's singing strikes like lightning in the spring.",
+      "comment": "miku daiyo!",
+      "foil": true,
+      "full_art": true,
+      "condition": "Moderately Played",
+      "id": 2
     }
   ],
-  "audits": []
+  "audits": [
+    {
+      "timestamp": "6/30/2026, 11:56:01 AM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/2/9243b872-c90f-4d25-9d8c-dbbcc8004a48.jpg?1782729906",
+        "backImg": "",
+        "name": "Chandra's Ignition",
+        "flavor_name": "Miku's Spark",
+        "type": "Sorcery",
+        "artist": "Justyna Dura",
+        "set": "Secret Lair Drop",
+        "description": "Target creature you control deals damage equal to its power to each other creature and each opponent.",
+        "flavor_text": "Sakura Miku's singing strikes like lightning in the spring.",
+        "comment": "miku daiyo!",
+        "foil": true,
+        "full_art": true,
+        "condition": "Moderately Played"
+      },
+      "action": "added",
+      "prior_state": null,
+      "id": 1
+    }
+  ]
 }

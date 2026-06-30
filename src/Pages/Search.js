@@ -63,20 +63,40 @@ export default function Search() {
 
   function handleAddCard(e) {
     e.preventDefault()
-    console.log(selectedCard)
+    const postedCard = {
+      ...selectedCard,
+      ...formData,
+    }
+    
     if (selectedCard.img === "/placeholder.jpg") {
       setFormData(blankFormState)
       alert("Search for and select a card to add it to your collection!")
     } else {
-      fetch(collURL, {
+      const request1 = fetch(collURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...selectedCard,
-          ...formData,
-        }),
+        body: JSON.stringify(postedCard),
       })
-      .then(setFormData(blankFormState))
+      
+      const request2 = fetch(auditURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
+        card: postedCard,
+        action: "added",
+        prior_state: null
+      })
+      })
+      
+      Promise.all([request1, request2])
+      .then(async ([res1, res2]) => {
+        const data1 = await res1.json()
+        const data2 = await res2.json()
+
+        console.log(data1, data2)
+        setFormData(blankFormState)
+      })
     }
   }
   
