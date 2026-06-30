@@ -85,40 +85,41 @@ export default function Search() {
       <NavBar />
     </header>
     <div>
-      <form onSubmit={handleSearch}>
+      <form id="searchForm" onSubmit={handleSearch}>
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
         <input type="submit" value="Search"></input>
       </form>
-      <ul>
+      <ul id="searchResults">
         {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
       </ul>
       <hr></hr>
-      <Display card={selectedCard}/>
-      <form onSubmit={handleAddCard}>
-          <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
-          <div id="addFormOptions">
-            <div>
-              <label>Foil</label>
-              <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
+      <Display card={selectedCard}>
+        <form id="addForm" onSubmit={handleAddCard}>
+            <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
+            <div id="addFormOptions">
+              <div>
+                <label>Foil</label>
+                <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
+              </div>
+              <div>
+                <label>Full Art</label>
+                <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
+              </div>
+              <div>
+                <label>Condition</label>
+                <select name="condition" value={formData.condition} onChange={handleChange} required>
+                  <option value="">Select a Condition</option>
+                  <option value="Near Mint">Near Mint</option>
+                  <option value="Lightly Played">Lightly Played</option>
+                  <option value="Moderately Played">Moderately Played</option>
+                  <option value="Heavily Played">Heavily Played</option>
+                  <option value="Damaged">Damaged</option>
+                </select>
+              </div>
             </div>
-            <div>
-              <label>Full Art</label>
-              <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
-            </div>
-            <div>
-              <label>Condition</label>
-              <select name="condition" value={formData.condition} onChange={handleChange} required>
-                <option value="">Select a Condition</option>
-                <option value="Near Mint">Near Mint</option>
-                <option value="Lightly Played">Lightly Played</option>
-                <option value="Moderately Played">Moderately Played</option>
-                <option value="Heavily Played">Heavily Played</option>
-                <option value="Damaged">Damaged</option>
-              </select>
-            </div>
-          </div>
-          <input type="submit" value="Add Card"></input>
-        </form>
+            <input type="submit" value="Add Card"></input>
+          </form>
+        </Display>
     </div>
     </>
   );

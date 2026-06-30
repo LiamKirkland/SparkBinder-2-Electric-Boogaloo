@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
+import { collURL } from "../constraints";
 
+//This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
 const MANA_CLASS_OVERRIDES = {
   T: "tap",
   Q: "untap",
@@ -27,28 +29,121 @@ function manaify(text) {
     return `<i class="ms ms-${cls} ms-cost ms-shadow"></i>`
   })
 }
+// Manaify ^
 
-export default function Display({card}) {
-  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art} = card
+
+
+export default function Display({ card, children, onSetCollection }) {
+  const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
   const [showBack, setShowBack] = useState(false)
+  const [editMode, setEditMode] = useState(false)
+  const [formData, setFormData] = useState({condition, foil, full_art, comment})
 
   useEffect(() => {
     setShowBack(false)
+    setEditMode(false)
+    setFormData({condition, foil, full_art, comment})
   }, [card])
 
   const displayImg = showBack ? backImg : img
 
-  function handleSubmit(e) {
+  function handleSave(e) {
     e.preventDefault()
+
+    fetch(`${collURL}/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(updatedCard => {
+      onSetCollection(prevColl => prevColl.map(card => {
+        return card.id === id ? updatedCard : card
+      }))
+      setEditMode(false)
+    })
   }
+
+  function handleCancel(e) {
+    e.preventDefault()
+    setFormData({condition, foil, full_art, comment})
+    setEditMode(false)
+  }
+
+  function handleDelete() {
+    if (window.confirm("Are you sure you want to delete this card from your collection? This action cannot be undone.")) {
+      fetch(`${collURL}/${id}`, {method: 'DELETE'})
+      .then(onSetCollection(prevColl => prevColl.filter(card => card.id !== id)))
+    }
+  }
+
+  function handleChange(e) {
+    const {name, value, checked} = e.target
+
+    setFormData(prevData => {
+      return {
+        ...prevData,
+        [name]: checked ?? value
+      }
+    })
+  }
+  console.log(formData)
+  const custAttributes = (() => {
+    if (editMode) {
+      return (
+        <form id="updateForm">
+          <div>
+            <label><b>Condition: </b></label>
+            <select name="condition" value={formData.condition} onChange={handleChange} required>
+              <option value="">Select a Condition</option>
+              <option value="Near Mint">Near Mint</option>
+              <option value="Lightly Played">Lightly Played</option>
+              <option value="Moderately Played">Moderately Played</option>
+              <option value="Heavily Played">Heavily Played</option>
+              <option value="Damaged">Damaged</option>
+            </select>
+          </div>
+          <div>
+            <label><b>Foil: </b></label>
+            <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label><b>Full Art: </b></label>
+            <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
+          </div>
+          <div>
+            <label><b>Comment: </b></label>
+            <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
+          </div>
+          <div>
+            <button onClick={handleSave}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </div>
+        </form>
+      )
+    } else {
+      return (
+        <>
+          <div><b>Condition: </b>{formData.condition}</div>
+          <div><b>Foil: </b>{formData.foil ? "Yes" : "No"}</div>
+          <div><b>Full Art: </b>{formData.full_art ? "Yes" : "No"}</div>
+          <div><b>Comment: </b>{formData.comment ? formData.comment : "None."}</div>
+          <div>
+            <button onClick={() => setEditMode(true)}>Update</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        </>
+      )
+    }
+  })()
 
   return (
     <div id="displayDiv">
-      <div>
-        <img src={displayImg}/>
-        {backImg ? <button onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
+      <div className="displayLeft">
+        <img id="displayImg" src={displayImg}/>
+        {backImg ? <button className="flipBtn" onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
-      <div>
+      <div className="displayRight">
         <div><b>{flavor_name && flavor_name !== name ? `${flavor_name} (${name})` : name}</b></div>
         <hr></hr>
         <div><b>Type: </b>{type}</div>
@@ -57,14 +152,9 @@ export default function Display({card}) {
         <div><b>Description: </b>{description ? <span dangerouslySetInnerHTML={{ __html: manaify(description) }} /> : "None."}</div>
         <div><b>Flavor Text: </b>{flavor_text ? flavor_text : "None."}</div>
         {condition ? 
-        <>
-          <div><b>Condition: </b>{condition}</div>
-          <div><b>Foil: </b>{foil ? "Yes" : "No"}</div>
-          <div><b>Full Art: </b>{full_art ? "Yes" : "No"}</div>
-          <div><b>Comment: </b>{comment ? comment : "None."}</div>
-        </>
+          custAttributes
         : null}
-        <hr></hr>
+        {children}
       </div>
     </div>
   )

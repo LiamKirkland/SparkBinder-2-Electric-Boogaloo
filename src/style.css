@@ -26,17 +26,141 @@ li div {
   word-wrap: break-word;
 }
 
-#displayDiv {
-  display: flex;
+/* =====================
+   SEARCH RESULTS
+   ===================== */
+
+#searchResults {
   width: 100vw;
-  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  gap: 0;
+  overflow: hidden;
 }
 
-#displayDiv img{
-  width: 60%;
+#searchResults li {
+  width: 9.9vw;        /* exactly 1/10th of the viewport — fixed regardless of result count */
+  flex-shrink: 0;     /* never compress below that size */
+  flex-grow: 0;       /* never stretch beyond it either */
+  box-sizing: border-box;
+  padding: 4px;
 }
+
+#searchResults li img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#searchResults li div {
+  font-size: clamp(0.5rem, 1vw, 0.85rem);
+  overflow-wrap: anywhere;
+}
+
+/* =====================
+   DISPLAY COMPONENT
+   ===================== */
+
+#displayDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 16px;
+  align-items: flex-start;
+}
+
+.displayLeft {
+  flex: 0 0 auto;
+  width: clamp(180px, 25vw, 340px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#displayImg {
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  object-fit: contain;
+  display: block;
+}
+
+.flipBtn {
+  width: 100%;
+}
+
+.displayRight {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* =====================
+   ADD FORM
+   ===================== */
+
+#addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#addForm textarea {
+  width: 100%;
+  min-height: 60px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+#addFormOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+#addFormOptions > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
 
 nav {
   display: flex;
   gap: 16px;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 500px) {
+  .displayLeft {
+    width: 100%;
+  }
+}
+
+#collPage {
+  display: flex;
+  flex-direction: column;
+}
+
+#collPage #displayDiv {
+  flex-shrink: 0; /* display area never collapses */
+}
+
+#collPage .displayLeft {
+  /* Reserve enough vertical space for image + button so the button
+     appearing/disappearing never shifts the layout below */
+  min-height: calc(clamp(180px, 25vw, 340px) * (7 / 5) + 48px);
 }
