@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { scryURL, collURL, auditURL } from "./constraints";
-import Result from "./components/Result";
-import Display from "./components/Display";
-import NavBar from "./components/NavBar";
+import { scryURL, collURL, auditURL } from "../constraints";
+import Result from "../components/Result";
+import Display from "../components/Display";
+import NavBar from "../components/NavBar";
 
 const placeholderCard = {
   img : "/placeholder.jpg",
@@ -63,22 +63,38 @@ export default function Search() {
 
   function handleAddCard(e) {
     e.preventDefault()
-
-    if (formData.img === "/placeholder.jpg") {
+    
+    if (selectedCard.img === "/placeholder.jpg") {
+      setFormData(blankFormState)
       alert("Search for and select a card to add it to your collection!")
     } else {
-      fetch(collURL, {
+      const request1 = fetch(collURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...selectedCard,
           ...formData,
+    }),
+      })
+      
+      const request2 = fetch(auditURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
+          card: selectedCard,
+          action: "Card Added to Collection",
+          new_state: formData,
         }),
       })
-      .then(setFormData(blankFormState))
+      
+      Promise.all([request1, request2])
+      .then(async () => {
+        setFormData(blankFormState)
+      })
     }
   }
-  console.log(cardResults)
+  
   return (
     <>
     <header>

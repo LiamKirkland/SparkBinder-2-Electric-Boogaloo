@@ -1,4 +1,236 @@
 {
-  "collection": [],
-  "audits": []
+  "collection": [
+    {
+      "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
+      "backImg": "",
+      "name": "Child of Alara",
+      "flavor_name": "Miku, Child of Song",
+      "type": "Legendary Creature — Avatar",
+      "artist": "Aya Kato",
+      "set": "Secret Lair Drop",
+      "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+      "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Lightly Played",
+      "id": 1
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/8/0/803a6ac7-9327-4c2f-b023-93f5f65f83b8.jpg?1782713080",
+      "backImg": "",
+      "name": "Awaken the Bear",
+      "type": "Instant",
+      "artist": "Svetlin Velinov",
+      "set": "Khans of Tarkir",
+      "description": "Target creature gets +3/+3 and gains trample until end of turn.",
+      "flavor_text": "When Temur warriors enter the battle trance known as \"awakening the bear,\" they lose all sense of enemy or friend, seeing only threats to the wilderness.",
+      "comment": "",
+      "foil": false,
+      "full_art": false,
+      "condition": "Near Mint",
+      "id": 2
+    }
+  ],
+  "audits": [
+    {
+      "timestamp": "6/30/2026, 12:34:32 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
+        "backImg": "",
+        "name": "Child of Alara",
+        "flavor_name": "Miku, Child of Song",
+        "type": "Legendary Creature — Avatar",
+        "artist": "Aya Kato",
+        "set": "Secret Lair Drop",
+        "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+        "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+        "comment": "Miku Miku BEAM",
+        "foil": false,
+        "full_art": true,
+        "condition": "Near Mint",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "condition": "Lightly Played",
+        "foil": true,
+        "full_art": true,
+        "comment": "Miku daiyo :D"
+      },
+      "id": 1
+    },
+    {
+      "timestamp": "6/30/2026, 1:10:53 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/2/9/29515c55-3b48-4c1d-a10b-b27fd1eb7a93.jpg?1782683169",
+        "backImg": "",
+        "name": "Primordial Hydra",
+        "type": "Creature — Hydra",
+        "artist": "Aleksi Briclot",
+        "set": "Secrets of Strixhaven Commander",
+        "description": "This creature enters with X +1/+1 counters on it. At the beginning of your upkeep, double the number of +1/+1 counters on this creature. This creature has trample as long as it has ten or more +1/+1 counters on it.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "My first mythic",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 2
+    },
+    {
+      "timestamp": "6/30/2026, 1:15:03 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/a/9/a995fd27-b4c9-4620-b759-4755101e1534.jpg?1782735513",
+        "backImg": "",
+        "name": "K'rrik, Son of Yawgmoth",
+        "flavor_name": "Post, Son of Rich",
+        "type": "Legendary Creature — Phyrexian Horror Minion",
+        "artist": "Darren Tan",
+        "set": "Secret Lair Drop",
+        "description": "({B/P} can be paid with either {B} or 2 life.), Lifelink, For each {B} in a cost, you may pay 2 life rather than pay that mana. Whenever you cast a black spell, put a +1/+1 counter on K'rrik.",
+        "flavor_text": ""
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "I love post malone",
+        "foil": true,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 3
+    },
+    {
+      "timestamp": "6/30/2026, 1:15:09 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/a/9/a995fd27-b4c9-4620-b759-4755101e1534.jpg?1782735513",
+        "backImg": "",
+        "name": "K'rrik, Son of Yawgmoth",
+        "flavor_name": "Post, Son of Rich",
+        "type": "Legendary Creature — Phyrexian Horror Minion",
+        "artist": "Darren Tan",
+        "set": "Secret Lair Drop",
+        "description": "({B/P} can be paid with either {B} or 2 life.), Lifelink, For each {B} in a cost, you may pay 2 life rather than pay that mana. Whenever you cast a black spell, put a +1/+1 counter on K'rrik.",
+        "flavor_text": "",
+        "comment": "I love post malone",
+        "foil": true,
+        "full_art": false,
+        "condition": "Near Mint",
+        "id": 2
+      },
+      "action": "Card Removed from Collection",
+      "new_state": {
+        "condition": "Near Mint",
+        "foil": true,
+        "full_art": false,
+        "comment": "I love post malone"
+      },
+      "id": 4
+    },
+    {
+      "timestamp": "6/30/2026, 1:21:22 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
+        "backImg": "",
+        "name": "Child of Alara",
+        "flavor_name": "Miku, Child of Song",
+        "type": "Legendary Creature — Avatar",
+        "artist": "Aya Kato",
+        "set": "Secret Lair Drop",
+        "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+        "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+        "comment": "Miku daiyo :D",
+        "foil": true,
+        "full_art": true,
+        "condition": "Lightly Played",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "Miku daiyo :D",
+        "foil": true,
+        "full_art": true,
+        "condition": "Near Mint"
+      },
+      "id": 5
+    },
+    {
+      "timestamp": "6/30/2026, 1:21:37 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
+        "backImg": "",
+        "name": "Child of Alara",
+        "flavor_name": "Miku, Child of Song",
+        "type": "Legendary Creature — Avatar",
+        "artist": "Aya Kato",
+        "set": "Secret Lair Drop",
+        "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+        "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+        "comment": "Miku daiyo :D",
+        "foil": true,
+        "full_art": true,
+        "condition": "Near Mint",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "Miku daiyo",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 6
+    },
+    {
+      "timestamp": "6/30/2026, 1:21:57 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/8/0/803a6ac7-9327-4c2f-b023-93f5f65f83b8.jpg?1782713080",
+        "backImg": "",
+        "name": "Awaken the Bear",
+        "type": "Instant",
+        "artist": "Svetlin Velinov",
+        "set": "Khans of Tarkir",
+        "description": "Target creature gets +3/+3 and gains trample until end of turn.",
+        "flavor_text": "When Temur warriors enter the battle trance known as \"awakening the bear,\" they lose all sense of enemy or friend, seeing only threats to the wilderness."
+      },
+      "action": "Card Added to Collection",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Near Mint"
+      },
+      "id": 7
+    },
+    {
+      "timestamp": "6/30/2026, 1:27:16 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
+        "backImg": "",
+        "name": "Child of Alara",
+        "flavor_name": "Miku, Child of Song",
+        "type": "Legendary Creature — Avatar",
+        "artist": "Aya Kato",
+        "set": "Secret Lair Drop",
+        "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+        "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+        "comment": "Miku daiyo",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "",
+        "foil": false,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "id": 8
+    }
+  ]
 }

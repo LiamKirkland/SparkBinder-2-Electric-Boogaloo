@@ -1,5 +1,5 @@
 import { Children, useEffect, useState } from "react";
-import { collURL } from "../constraints";
+import { auditURL, collURL } from "../constraints";
 
 //This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
 const MANA_CLASS_OVERRIDES = {
@@ -37,12 +37,12 @@ export default function Display({ card, children, onSetCollection }) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
   const [showBack, setShowBack] = useState(false)
   const [editMode, setEditMode] = useState(false)
-  const [formData, setFormData] = useState({condition, foil, full_art, comment})
+  const [formData, setFormData] = useState({comment, foil, full_art, condition})
 
   useEffect(() => {
     setShowBack(false)
     setEditMode(false)
-    setFormData({condition, foil, full_art, comment})
+    setFormData({comment, foil, full_art, condition})
   }, [card])
 
   const displayImg = showBack ? backImg : img
@@ -50,30 +50,58 @@ export default function Display({ card, children, onSetCollection }) {
   function handleSave(e) {
     e.preventDefault()
 
-    fetch(`${collURL}/${id}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
+    const request1 = fetch(`${collURL}/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     })
-    .then(res => res.json())
-    .then(updatedCard => {
-      onSetCollection(prevColl => prevColl.map(card => {
-        return card.id === id ? updatedCard : card
-      }))
-      setEditMode(false)
-    })
+
+    const request2 = fetch(auditURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
+          card: card,
+          action: "Card Updated",
+          new_state: formData,
+        }),
+      })
+
+      Promise.all([request1, request2]).then(async ([res1]) => {
+        const updatedCard = await res1.json()
+
+        onSetCollection((prevColl) =>
+          prevColl.map((card) => {
+            return card.id === id ? updatedCard : card
+          }),
+        )
+        setEditMode(false)
+      })
   }
 
   function handleCancel(e) {
     e.preventDefault()
-    setFormData({condition, foil, full_art, comment})
+    setFormData({comment, foil, full_art, condition})
     setEditMode(false)
   }
 
   function handleDelete() {
     if (window.confirm("Are you sure you want to delete this card from your collection? This action cannot be undone.")) {
-      fetch(`${collURL}/${id}`, {method: 'DELETE'})
-      .then(onSetCollection(prevColl => prevColl.filter(card => card.id !== id)))
+      const request1 = fetch(`${collURL}/${id}`, {method: 'DELETE'})
+      const request2 = fetch(auditURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
+          card: card,
+          action: "Card Removed from Collection",
+          new_state: formData,
+        }),
+      })
+
+      Promise.all([request1, request2]).then(async () => {
+        onSetCollection(prevColl => prevColl.filter(card => card.id !== id))
+      })
     }
   }
 
@@ -87,7 +115,7 @@ export default function Display({ card, children, onSetCollection }) {
       }
     })
   }
-  console.log(formData)
+  
   const custAttributes = (() => {
     if (editMode) {
       return (
@@ -145,7 +173,6 @@ export default function Display({ card, children, onSetCollection }) {
       </div>
       <div className="displayRight">
         <div><b>{flavor_name && flavor_name !== name ? `${flavor_name} (${name})` : name}</b></div>
-        <hr></hr>
         <div><b>Type: </b>{type}</div>
         <div><b>Artist: </b>{artist}</div>
         <div><b>Set: </b>{set ? set : "None."}</div>

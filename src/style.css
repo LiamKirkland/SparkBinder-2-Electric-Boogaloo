@@ -1,3 +1,7 @@
+img {
+  border-radius: 4.75% / 3.5%;
+}
+
 ul {
   display: flex;
   flex-wrap: nowrap;
@@ -26,10 +30,6 @@ li div {
   word-wrap: break-word;
 }
 
-/* =====================
-   SEARCH RESULTS
-   ===================== */
-
 #searchResults {
   width: 100vw;
   box-sizing: border-box;
@@ -39,9 +39,9 @@ li div {
 }
 
 #searchResults li {
-  width: 9.9vw;        /* exactly 1/10th of the viewport — fixed regardless of result count */
-  flex-shrink: 0;     /* never compress below that size */
-  flex-grow: 0;       /* never stretch beyond it either */
+  width: 9.9vw;
+  flex-shrink: 0;
+  flex-grow: 0;
   box-sizing: border-box;
   padding: 4px;
 }
@@ -56,10 +56,6 @@ li div {
   font-size: clamp(0.5rem, 1vw, 0.85rem);
   overflow-wrap: anywhere;
 }
-
-/* =====================
-   DISPLAY COMPONENT
-   ===================== */
 
 #displayDiv {
   display: flex;
@@ -100,10 +96,6 @@ li div {
   min-width: 0;
 }
 
-/* =====================
-   ADD FORM
-   ===================== */
-
 #addForm {
   display: flex;
   flex-direction: column;
@@ -125,24 +117,16 @@ li div {
   align-items: center;
 }
 
-#addFormOptions > div {
+#addFormOptions>div {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-/* =====================
-   NAVBAR
-   ===================== */
-
 nav {
   display: flex;
   gap: 16px;
 }
-
-/* =====================
-   RESPONSIVE
-   ===================== */
 
 @media (max-width: 500px) {
   .displayLeft {
@@ -156,11 +140,125 @@ nav {
 }
 
 #collPage #displayDiv {
-  flex-shrink: 0; /* display area never collapses */
+  flex-shrink: 0;
 }
 
 #collPage .displayLeft {
-  /* Reserve enough vertical space for image + button so the button
-     appearing/disappearing never shifts the layout below */
   min-height: calc(clamp(180px, 25vw, 340px) * (7 / 5) + 48px);
+}
+
+#auditsPage {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+
+#auditsPage h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.6rem;
+}
+
+#auditsPage {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+
+#auditsPage h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.6rem;
+}
+
+.auditDiv--add {
+  background-color: #d4edda;
+}
+
+.auditDiv--update {
+  background-color: #fff3cd;
+}
+
+.auditDiv--delete {
+  background-color: #f8d7da;
+}
+
+.auditDiv--delete .auditChanges{
+  text-decoration: line-through;
+}
+
+.auditDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.auditDiv img {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.auditDiv p {
+  margin: 3px 0;
+  font-size: 1rem;
+}
+
+.auditDiv > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.auditDiv > div:first-child p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.auditDiv > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.auditDiv > div:last-child > p:first-child {
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}
+
+.auditDiv > div:last-child > p:nth-child(2) {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.auditChanges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.auditChanges p {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-family: monospace;
+  word-break: break-all;
 }
