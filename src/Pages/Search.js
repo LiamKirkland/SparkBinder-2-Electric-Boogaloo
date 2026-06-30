@@ -79,14 +79,14 @@ export default function Search() {
       })
       
       const request2 = fetch(auditURL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
-        card: postedCard,
-        action: "added",
-        prior_state: null
-      })
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
+          card: postedCard,
+          action: "Card Added to Collection",
+          new_state: null,
+        }),
       })
       
       Promise.all([request1, request2])

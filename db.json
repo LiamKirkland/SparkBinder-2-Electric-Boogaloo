@@ -1,59 +1,92 @@
 {
   "collection": [
     {
-      "img": "https://cards.scryfall.io/normal/front/4/8/48b25568-46e9-4f4e-a4b5-7f371314e49e.jpg?1782729900",
+      "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
       "backImg": "",
-      "name": "Azusa, Lost but Seeking",
-      "flavor_name": "Miku, Lost but Singing",
-      "type": "Legendary Creature — Human Monk",
-      "artist": "Jehan Choo",
+      "name": "Child of Alara",
+      "flavor_name": "Miku, Child of Song",
+      "type": "Legendary Creature — Avatar",
+      "artist": "Aya Kato",
       "set": "Secret Lair Drop",
-      "description": "You may play two additional lands on each of your turns.",
-      "flavor_text": "\"With every step, I discover a new stage. With every breath, a new song.\"",
-      "comment": "",
-      "foil": false,
-      "full_art": false,
-      "condition": "Lightly Played",
-      "id": 1
-    },
-    {
-      "img": "https://cards.scryfall.io/normal/front/9/2/9243b872-c90f-4d25-9d8c-dbbcc8004a48.jpg?1782729906",
-      "backImg": "",
-      "name": "Chandra's Ignition",
-      "flavor_name": "Miku's Spark",
-      "type": "Sorcery",
-      "artist": "Justyna Dura",
-      "set": "Secret Lair Drop",
-      "description": "Target creature you control deals damage equal to its power to each other creature and each opponent.",
-      "flavor_text": "Sakura Miku's singing strikes like lightning in the spring.",
-      "comment": "miku daiyo!",
+      "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+      "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+      "comment": "Miku daiyo :D",
       "foil": true,
       "full_art": true,
-      "condition": "Moderately Played",
-      "id": 2
+      "condition": "Lightly Played",
+      "id": 1
     }
   ],
   "audits": [
     {
-      "timestamp": "6/30/2026, 11:56:01 AM",
+      "timestamp": "6/30/2026, 12:34:32 PM",
       "card": {
-        "img": "https://cards.scryfall.io/normal/front/9/2/9243b872-c90f-4d25-9d8c-dbbcc8004a48.jpg?1782729906",
+        "img": "https://cards.scryfall.io/normal/front/9/0/906482a9-4b9d-4fc3-a3e5-ac135ed076d3.jpg?1782729661",
         "backImg": "",
-        "name": "Chandra's Ignition",
-        "flavor_name": "Miku's Spark",
-        "type": "Sorcery",
-        "artist": "Justyna Dura",
+        "name": "Child of Alara",
+        "flavor_name": "Miku, Child of Song",
+        "type": "Legendary Creature — Avatar",
+        "artist": "Aya Kato",
         "set": "Secret Lair Drop",
-        "description": "Target creature you control deals damage equal to its power to each other creature and each opponent.",
-        "flavor_text": "Sakura Miku's singing strikes like lightning in the spring.",
-        "comment": "miku daiyo!",
+        "description": "Trample, When Child of Alara dies, destroy all nonland permanents. They can't be regenerated.",
+        "flavor_text": "Some say Miku was born of music. Others think she is harmony incarnate.",
+        "comment": "Miku Miku BEAM",
+        "foil": false,
+        "full_art": true,
+        "condition": "Near Mint",
+        "id": 1
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "condition": "Lightly Played",
         "foil": true,
         "full_art": true,
-        "condition": "Moderately Played"
+        "comment": "Miku daiyo :D"
       },
-      "action": "added",
-      "prior_state": null,
       "id": 1
+    },
+    {
+      "timestamp": "6/30/2026, 12:46:09 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/7/5/7572bb1d-0578-4ebb-9180-dbb709ec9a5c.jpg?1782735513",
+        "backImg": "",
+        "name": "Bolas's Citadel",
+        "flavor_name": "Post's Citadel",
+        "type": "Legendary Artifact",
+        "artist": "Lorenzo Mastroianni",
+        "set": "Secret Lair Drop",
+        "description": "You may look at the top card of your library any time. You may play lands and cast spells from the top of your library. If you cast a spell this way, pay life equal to its mana value rather than pay its mana cost. {T}, Sacrifice ten nonland permanents: Each opponent loses 10 life.",
+        "flavor_text": "",
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played"
+      },
+      "action": "Card Added to Collection",
+      "new_state": null,
+      "id": 2
+    },
+    {
+      "timestamp": "6/30/2026, 12:48:13 PM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/7/5/7572bb1d-0578-4ebb-9180-dbb709ec9a5c.jpg?1782735513",
+        "backImg": "",
+        "name": "Bolas's Citadel",
+        "flavor_name": "Post's Citadel",
+        "type": "Legendary Artifact",
+        "artist": "Lorenzo Mastroianni",
+        "set": "Secret Lair Drop",
+        "description": "You may look at the top card of your library any time. You may play lands and cast spells from the top of your library. If you cast a spell this way, pay life equal to its mana value rather than pay its mana cost. {T}, Sacrifice ten nonland permanents: Each opponent loses 10 life.",
+        "flavor_text": "",
+        "comment": "",
+        "foil": true,
+        "full_art": false,
+        "condition": "Lightly Played",
+        "id": 2
+      },
+      "action": "Card Removed from Collection",
+      "new_state": null,
+      "id": 3
     }
   ]
 }
