@@ -136,7 +136,7 @@ export default function Search() {
                 </select>
               </div>
             </div>
-            <input type="submit" value="Add Card"></input>
+            <input type="submit" value="Add Card" id="addCard"></input>
           </form>
         </Display>
     </div>
