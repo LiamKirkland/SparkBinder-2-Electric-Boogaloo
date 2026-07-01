@@ -51,37 +51,43 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
 
   function handleSave(e) {
     e.preventDefault()
-    setLoading(true)
     
-    const request1 = fetch(`${collURL}/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
+    if(!Object.keys(formData).every((key) => card[key] === formData[key])) {
+      setLoading(true)
 
-    const request2 = fetch(auditURL, {
+      const request1 = fetch(`${collURL}/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const request2 = fetch(auditURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
+          timestamp: new Date().toLocaleString("en-US", {
+            timeZone: "America/New_York",
+          }),
           card: card,
           action: "Card Updated",
           new_state: formData,
         }),
       })
 
-      Promise.all([request1, request2]).then(async ([res1]) => {
-        const updatedCard = await res1.json()
+      Promise.all([request1, request2])
+        .then(async ([res1]) => {
+          const updatedCard = await res1.json()
 
-        onSetCollection((prevColl) =>
-          prevColl.map((card) => {
-            return card.id === id ? updatedCard : card
-          }),
-        )
-        setEditMode(false)
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false))
+          onSetCollection((prevColl) =>
+            prevColl.map((card) => card.id === id ? updatedCard : card ),
+          )
+          setEditMode(false)
+        })
+        .catch(console.error)
+        .finally(() => setLoading(false))
+    } else {
+      setEditMode(false)
+    }
   }
 
   function handleCancel(e) {
