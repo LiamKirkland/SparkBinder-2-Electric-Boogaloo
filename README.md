@@ -40,6 +40,10 @@ As a user, I want to search for MTG cards using [Scryfall's API](https://scryfal
   - This API has a rate-limit of 2 queries per second
   - When spammed, the API will block additional calls and throw a 429 error in the console
     - If this does happen, simply wait a minute or two then try again
+- The application assumes your json-server will be running on port 3000
+  - If after running `json-server --watch db.json` you see that it is running on a different port, you can do one of two things:
+    - Close any other local servers that may be running, then rerun the json-server
+    - Change the `REACT_APP_API_URL` variable in `.env.development` to reflect which port your server is running on
 - If you aren't familiar with Magic the Gathering, no worries! There are over 29,000 uniquely named cards, so it is easy to find cards with general searches
   - Magic is in a fantasy setting, so words like Elf, Mage, Wizard, Spell, etc will yield plenty of results
   - You can also use Scryfall's [Random Feature](https://scryfall.com/random) to find cards and search them within SparkBinder
