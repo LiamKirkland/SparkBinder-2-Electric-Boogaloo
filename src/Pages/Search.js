@@ -57,8 +57,10 @@ export default function Search() {
         const cards = queryRes.data
         setCardResults([...cards.slice(0, 10)])
         setSelectedCard(placeholderCard)
+        setFormData(blankFormState)
       }
     })
+    .catch(console.error)
   }
 
   function handleAddCard(e) {
@@ -92,6 +94,7 @@ export default function Search() {
       .then(async () => {
         setFormData(blankFormState)
       })
+      .catch(console.error)
     }
   }
   
@@ -100,6 +103,7 @@ export default function Search() {
     <header>
       <NavBar />
     </header>
+      <hr></hr>
     <div>
       <form id="searchForm" onSubmit={handleSearch}>
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
@@ -108,8 +112,7 @@ export default function Search() {
       <ul id="searchResults">
         {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
       </ul>
-      <hr></hr>
-      <Display card={selectedCard}>
+      <Display card={selectedCard} isFoil={formData.foil}>
         <form id="addForm" onSubmit={handleAddCard}>
             <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
             <div id="addFormOptions">

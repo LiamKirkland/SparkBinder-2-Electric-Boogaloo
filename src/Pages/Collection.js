@@ -16,6 +16,7 @@ export default function Collection() {
       setCollectionCards(data)
       setSelectedCardId(data[0]?.id)
     })
+    .catch(console.error)
   }, [])
 
   function handleClick(clickedCard) {
@@ -28,6 +29,7 @@ export default function Collection() {
         <header>
           <NavBar />
         </header>
+        <hr></hr>
         <h1>Add cards to your collection to view them here!</h1>
       </>
     )

@@ -1,3 +1,5 @@
+import Card from "./Card"
+
 export default function Result({card, onSetSelected}) {
   const clickedCard = (() => {
     if (card.img) {
@@ -48,10 +50,10 @@ export default function Result({card, onSetSelected}) {
   function handleClick() {
     onSetSelected(clickedCard)
   }
-
+  
   return (
     <li onClick={handleClick}>
-      <img src={clickedCard.img} />
+      <Card image={clickedCard.img} isFoil={card.img && card.foil} />
       <div>{clickedCard.flavor_name && clickedCard.flavor_name !== clickedCard.name ? clickedCard.flavor_name : clickedCard.name}</div>
     </li>
   )

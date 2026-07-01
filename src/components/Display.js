@@ -1,5 +1,6 @@
 import { Children, useEffect, useState } from "react";
 import { auditURL, collURL } from "../constraints";
+import Card from "./Card";
 
 //This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
 const MANA_CLASS_OVERRIDES = {
@@ -33,7 +34,7 @@ function manaify(text) {
 
 
 
-export default function Display({ card, children, onSetCollection }) {
+export default function Display({ card, children, onSetCollection, isFoil }) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
   const [showBack, setShowBack] = useState(false)
   const [editMode, setEditMode] = useState(false)
@@ -77,6 +78,7 @@ export default function Display({ card, children, onSetCollection }) {
         )
         setEditMode(false)
       })
+      .catch(console.error)
   }
 
   function handleCancel(e) {
@@ -102,6 +104,7 @@ export default function Display({ card, children, onSetCollection }) {
       Promise.all([request1, request2]).then(async () => {
         onSetCollection(prevColl => prevColl.filter(card => card.id !== id))
       })
+      .catch(console.error)
     }
   }
 
@@ -168,7 +171,7 @@ export default function Display({ card, children, onSetCollection }) {
   return (
     <div id="displayDiv">
       <div className="displayLeft">
-        <img id="displayImg" src={displayImg}/>
+        <Card image={displayImg} isFoil={formData.foil ?? isFoil}/>
         {backImg ? <button className="flipBtn" onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
       <div className="displayRight">
