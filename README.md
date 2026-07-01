@@ -6,11 +6,9 @@ As a user, I want to search for MTG cards using [Scryfall's API](https://scryfal
   - `git clone git@github.com:LiamKirkland/SparkBinder-2-Electric-Boogaloo.git`
 - Navigate to the project directory and then install the dependencies
   - This can be done by running `cd SparkBinder-2-Electric-Boogaloo` and then `npm install`
-- Ensure you have a json-server installed
-  - This can be done by running `npm install -g json-server`
 - Have the json-server watch the `db.json` file to ensure the collection and audit features work as expected
   - Run `json-server --watch db.json` in the project directory to do this
-- Run `npm start` in the project directory to open SparkBinder 2 in your default browser
+- In a new terminal window/tab, run `npm start` in the project directory to open SparkBinder 2 in your default browser
 
 ### Core Features
 - ***Search Page***
