@@ -46,7 +46,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
     setEditMode(false)
     setFormData({comment, foil, full_art, condition})
   }, [card])
-
+  console.log(loading)
   const displayImg = showBack ? backImg : img
 
   function handleSave(e) {
@@ -81,7 +81,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
         setEditMode(false)
       })
       .catch(console.error)
-      .finally(setLoading(false))
+      .finally(() => setLoading(false))
   }
 
   function handleCancel(e) {
@@ -110,7 +110,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
         onSetCollection(prevColl => prevColl.filter(card => card.id !== id))
       })
       .catch(console.error)
-      .finally(setLoading(false))
+      .finally(() => setLoading(false))
     }
   }
 

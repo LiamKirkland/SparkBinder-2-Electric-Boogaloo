@@ -29,7 +29,7 @@ export default function Search() {
   const [formData, setFormData] = useState(blankFormState)
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
   const [loading, setLoading] = useState(false)
-
+  console.log(loading)
   function handleChange(e) {
     const {name, value, checked} = e.target
 
@@ -40,7 +40,7 @@ export default function Search() {
       }
     })
   }
-
+  
   function handleClick(clickedCard) {
     setFormData(blankFormState)
     setSelectedCard(clickedCard)
@@ -64,7 +64,7 @@ export default function Search() {
       }
     })
     .catch(console.error)
-    .finally(setLoading(false))
+    .finally(() => setLoading(false))
   }
 
   function handleAddCard(e) {
@@ -101,7 +101,7 @@ export default function Search() {
         setFormData(blankFormState)
       })
       .catch(console.error)
-      .finally(setLoading(false))
+      .finally(() => setLoading(false))
     }
   }
   
