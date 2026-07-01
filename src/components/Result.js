@@ -52,7 +52,7 @@ export default function Result({card, onSetSelected}) {
   }
   
   return (
-    <li onClick={handleClick}>
+    <li onClick={handleClick} className="resultLi">
       <Card image={clickedCard.img} isFoil={card.img && card.foil} />
       <div>{clickedCard.flavor_name && clickedCard.flavor_name !== clickedCard.name ? clickedCard.flavor_name : clickedCard.name}</div>
     </li>

@@ -1,5 +1,5 @@
 import { Children, useEffect, useState } from "react";
-import { auditURL, collURL } from "../constraints";
+import { auditURL, collURL } from "../constants";
 import Card from "./Card";
 
 //This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 

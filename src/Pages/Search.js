@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { scryURL, collURL, auditURL } from "../constraints";
+import { scryURL, collURL, auditURL } from "../constants";
 import Result from "../components/Result";
 import Display from "../components/Display";
 import NavBar from "../components/NavBar";
@@ -136,7 +136,7 @@ export default function Search() {
                 </select>
               </div>
             </div>
-            <input type="submit" value="Add Card"></input>
+            <input type="submit" value="Add Card" id="addCard"></input>
           </form>
         </Display>
     </div>

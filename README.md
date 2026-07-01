@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# SparkBinder 2 <br> <sub style="font-size: 0.1rem">*Now with 100% more React!*</sub>
+As a user, I want to search for MTG cards using [Scryfall's API](https://scryfall.com/docs/api). Then I want to add my own attributes (such as Condition, Foil vs Paper, Full Art or Standard, and a comment) and add the card to my collection. I would also like to be able to update or remove cards and have all of these changes tracked. Lastly, all of this should be persistent across sessions as my collection grows/changes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project Setup
+- Pull the app down from GitHub
+  - `git clone git@github.com:LiamKirkland/SparkBinder-2-Electric-Boogaloo.git`
+- Navigate to the project directory and then install the dependencies
+  - This can be done by running `cd SparkBinder-2-Electric-Boogaloo` and then `npm install`
+- Have the json-server watch the `db.json` file to ensure the collection and audit features work as expected
+  - Run `json-server --watch db.json` in the project directory to do this
+- In a new terminal window/tab, run `npm start` in the project directory to open SparkBinder 2 in your default browser
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Core Features
+- ***Search Page***
+  - Search results should display up to the first 10 cards found by Scryfall's API
+  - Clicking one of the results should display it and its relevant information
+  - Store card attributes in State to reduce reliance on Scryfall's API/reduce redundant calls
+  - From this display window, users can add their own attributes and add the card to their collection
+- ***Collection Page***
+  - Cards in the collection will be displayed on this page
+  - The card display will appear at the top and automatically select the first card in the collection on page load
+  - Users can click on a card to display it and see both the card's information and the user's custom-set attributes
+  - Users can delete or update the card from this display window
+- ***Audits Page***
+  - Any changes to the Collection will be tracked here
+    - These changes include cards Added, Removed, or Updated
+    - If a card is updated, its updated attributes are displayed on the audit
+  - These Audits can be sorted by Newest or Oldest first (Newest by default), and can be filtered by action type (Add, Update, Delete)
+- ***App Persistence***
+  - SparkBinder 2 uses a local DB file to store the user's collection and the collection's audit history to allow for persistence across sessions
+  - Both the audits and the collection are stored within the same file
+  - The Audits are added to from the back-end, as this should in theory represent the true history of the collection and should not be edited by the user directly
+ 
+### User Notes
+- The Search functionality relies on Scryfall's public API
+  - This API has a rate-limit of 2 queries per second
+  - When spammed, the API will block additional calls and throw a 429 error in the console
+    - If this does happen, simply wait a minute or two then try again
+- The application assumes your json-server will be running on port 3000
+  - If after running `json-server --watch db.json` you see that it is running on a different port, you can do one of two things:
+    - Close any other local servers that may be running, then rerun the json-server
+    - Change the `collURL` and `auditURL` variables in `constants.js` to reflect which port your server is running on
+- If you aren't familiar with Magic the Gathering, no worries! There are over 29,000 uniquely named cards, so it is easy to find cards with general searches
+  - Magic is in a fantasy setting, so words like Elf, Mage, Wizard, Spell, etc will yield plenty of results
+  - You can also use Scryfall's [Random Feature](https://scryfall.com/random) to find cards and search them within SparkBinder
+    - *Some of the art on SparkBinder may not line up with what you see on Scryfall, as some cards get reprinted with new art and SparkBinder does not account for cards that span across multiple sets.*
