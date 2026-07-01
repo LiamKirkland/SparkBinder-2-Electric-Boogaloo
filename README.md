@@ -2,13 +2,16 @@
 As a user, I want to search for MTG cards using [Scryfall's API](https://scryfall.com/docs/api). Then I want to add my own attributes (such as Condition, Foil vs Paper, Full Art or Standard, and a comment) and add the card to my collection. I would also like to be able to update or remove cards and have all of these changes tracked. Lastly, all of this should be persistent across sessions as my collection grows/changes.
 
 ### Project Setup
-- Pull the app down from GitHub
-  - `git clone git@github.com:LiamKirkland/SparkBinder-2-Electric-Boogaloo.git`
-- Navigate to the project directory and then install the dependencies
-  - This can be done by running `cd SparkBinder-2-Electric-Boogaloo` and then `npm install`
-- Have the json-server watch the `db.json` file to ensure the collection and audit features work as expected
-  - Run `json-server --watch db.json` in the project directory to do this
-- In a new terminal window/tab, run `npm start` in the project directory to open SparkBinder 2 in your default browser
+- The app is currently deployed on [Netlify](https://fascinating-liger-17bf24.netlify.app/)!
+  - Click the link to try it out without any setup :D
+- To run the app locally, follow these instructions: 
+  - Pull the app down from GitHub
+    - `git clone git@github.com:LiamKirkland/SparkBinder-2-Electric-Boogaloo.git`
+  - Navigate to the project directory and then install the dependencies
+    - This can be done by running `cd SparkBinder-2-Electric-Boogaloo` and then `npm install`
+  - Once the packages are done installing, run the following commands:
+    - Run `npm run dev` to start your json-server
+    - In a new terminal window/tab, run `npm start` in the project directory to open SparkBinder 2 in your default browser
 
 ### Core Features
 - ***Search Page***

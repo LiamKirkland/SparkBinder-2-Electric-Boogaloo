@@ -172,6 +172,22 @@ button:hover {
   box-shadow: var(--shadow-glow);
 }
 
+input[type="submit"]:disabled,
+button:disabled {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border-color: var(--border-weak);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+input[type="submit"]:disabled:hover,
+button:disabled:hover {
+  background: var(--bg-surface);
+  box-shadow: none;
+}
+
 ul {
   display: flex;
   flex-wrap: nowrap;

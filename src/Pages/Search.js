@@ -28,7 +28,8 @@ export default function Search() {
   const [cardResults, setCardResults] = useState([])
   const [formData, setFormData] = useState(blankFormState)
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
-
+  const [loading, setLoading] = useState(false)
+  
   function handleChange(e) {
     const {name, value, checked} = e.target
 
@@ -39,7 +40,7 @@ export default function Search() {
       }
     })
   }
-
+  
   function handleClick(clickedCard) {
     setFormData(blankFormState)
     setSelectedCard(clickedCard)
@@ -47,6 +48,8 @@ export default function Search() {
 
   function handleSearch(e) {
     e.preventDefault()
+
+    setLoading(true)
 
     fetch(`${scryURL}/search?q=${searchTerm.replace(/ /g, "+")}`)
     .then(res => res.json())
@@ -61,10 +64,13 @@ export default function Search() {
       }
     })
     .catch(console.error)
+    .finally(() => setLoading(false))
   }
 
   function handleAddCard(e) {
     e.preventDefault()
+
+    setLoading(true)
     
     if (selectedCard.img === "/placeholder.jpg") {
       setFormData(blankFormState)
@@ -95,6 +101,7 @@ export default function Search() {
         setFormData(blankFormState)
       })
       .catch(console.error)
+      .finally(() => setLoading(false))
     }
   }
   
@@ -107,7 +114,7 @@ export default function Search() {
     <div>
       <form id="searchForm" onSubmit={handleSearch}>
         <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
-        <input type="submit" value="Search"></input>
+        <input type="submit" value="Search" disabled={loading}></input>
       </form>
       <ul id="searchResults">
         {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
@@ -136,7 +143,7 @@ export default function Search() {
                 </select>
               </div>
             </div>
-            <input type="submit" value="Add Card" id="addCard"></input>
+            <input type="submit" value="Add Card" id="addCard" disabled={loading}></input>
           </form>
         </Display>
     </div>
