@@ -2,7 +2,7 @@
 As a user, I want to search for MTG cards using [Scryfall's API](https://scryfall.com/docs/api). Then I want to add my own attributes (such as Condition, Foil vs Paper, Full Art or Standard, and a comment) and add the card to my collection. I would also like to be able to update or remove cards and have all of these changes tracked. Lastly, all of this should be persistent across sessions as my collection grows/changes.
 
 ### Project Setup
-- The app is currently deployed on [Netlify](https://fascinating-liger-17bf24.netlify.app/)!
+- The app is currently deployed on [Netlify](https://sparkbinder.netlify.app/)!
   - Click the link to try it out without any setup :D
 - To run the app locally, follow these instructions: 
   - Pull the app down from GitHub
