@@ -46,7 +46,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
     setEditMode(false)
     setFormData({comment, foil, full_art, condition})
   }, [card])
-  console.log(loading)
+  
   const displayImg = showBack ? backImg : img
 
   function handleSave(e) {
