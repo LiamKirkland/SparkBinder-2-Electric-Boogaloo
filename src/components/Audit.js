@@ -1,7 +1,7 @@
 import Card from "./Card"
 
 export default function Audit({ audit }) {
-  const { action, card, id, new_state, timestamp} = audit
+  const { action, card, new_state, timestamp} = audit
   
   const actionClass = (() => {
     if(action.toLowerCase().includes("added")) {

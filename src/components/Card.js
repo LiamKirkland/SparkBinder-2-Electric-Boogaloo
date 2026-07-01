@@ -63,7 +63,7 @@ export default function Card({ image, isFoil }) {
       onMouseMove={cardMouseMove}
       onMouseLeave={cardMouseLeave} >
       {isFoil && <div className="foilOverlay" ref={foilRef} />}
-      <img className="cardImage" src={image} />
+      <img className="cardImage" src={image} alt="card image"/>
     </div>
   )
 }
