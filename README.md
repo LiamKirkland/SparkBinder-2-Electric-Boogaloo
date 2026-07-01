@@ -4,6 +4,7 @@ As a user, I want to search for MTG cards using [Scryfall's API](https://scryfal
 ### Project Setup
 - The app is currently deployed on [Netlify](https://sparkbinder.netlify.app/)!
   - Click the link to try it out without any setup :D
+  - **Note regarding the deployment:** If there is an extended period of inactivity, Netlify/Render will spin down since I'm on the free plan. So your first request may take 30-60 seconds. Once the instance is spun back up it should flow smoothly without too much waiting. 
 - To run the app locally, follow these instructions: 
   - Pull the app down from GitHub
     - `git clone git@github.com:LiamKirkland/SparkBinder-2-Electric-Boogaloo.git`
