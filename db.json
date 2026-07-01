@@ -40,10 +40,10 @@
       "set": "Avatar: The Last Airbender Eternal",
       "description": "Flying, vigilance, Whenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
       "flavor_text": "",
-      "comment": "",
-      "foil": false,
-      "full_art": true,
-      "condition": "Lightly Played",
+      "comment": "da goat",
+      "foil": true,
+      "full_art": false,
+      "condition": "Moderately Played",
       "id": 3
     },
     {
@@ -688,6 +688,32 @@
         "condition": "Moderately Played"
       },
       "id": 25
+    },
+    {
+      "timestamp": "7/1/2026, 9:36:18 AM",
+      "card": {
+        "img": "https://cards.scryfall.io/normal/front/e/5/e5ead59f-4c09-4b56-913e-4ff5d6d48ac2.jpg?1782724407",
+        "backImg": "",
+        "name": "Appa, the Vigilant",
+        "type": "Legendary Creature — Bison Ally",
+        "artist": "Fahmi Fauzi",
+        "set": "Avatar: The Last Airbender Eternal",
+        "description": "Flying, vigilance, Whenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
+        "flavor_text": "",
+        "comment": "",
+        "foil": false,
+        "full_art": true,
+        "condition": "Lightly Played",
+        "id": 3
+      },
+      "action": "Card Updated",
+      "new_state": {
+        "comment": "da goat",
+        "foil": true,
+        "full_art": false,
+        "condition": "Moderately Played"
+      },
+      "id": 26
     }
   ]
 }

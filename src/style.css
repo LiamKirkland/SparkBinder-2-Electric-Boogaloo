@@ -1,45 +1,37 @@
-/* ============================================================
-   SparkBinder 2: Electric Boogaloo — CSS Overhaul
-   Theme: Warm parchment / MTG binder
-   Fonts: Cinzel (headings) + Crimson Pro (body)
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 
-/* ============================================================
-   CSS Custom Properties
-   ============================================================ */
 :root {
-  --bg-base:         #f5f0e8;
-  --bg-surface:      #ede6d8;
-  --bg-raised:       #e6dcc8;
-  --bg-hover:        #ddd3bc;
-  --border-subtle:   #cfc4aa;
-  --border-strong:   #b8a882;
-  --accent-gold:     #8a6d20;
-  --accent-gold-lt:  #b08d3a;
-  --accent-purple:   #5c3f7a;
-  --accent-purple-lt:#7b5ea7;
-  --text-primary:    #2a2218;
-  --text-secondary:  #5a4e38;
-  --text-muted:      #8a7d65;
-  --text-heading:    #3d2e0e;
-  --shadow-card:     0 2px 12px rgba(80, 60, 20, 0.13);
-  --shadow-glow:     0 0 14px rgba(138, 109, 32, 0.18);
-  --radius-card:     8px;
-  --radius-sm:       4px;
+  --bg-base: #f5f0e8;
+  --bg-surface: #ede6d8;
+  --bg-raised: #e6dcc8;
+  --bg-hover: #ddd3bc;
+  --border-subtle: #cfc4aa;
+  --border-strong: #b8a882;
+  --accent-gold: #8a6d20;
+  --accent-gold-lt: #b08d3a;
+  --accent-purple: #5c3f7a;
+  --accent-purple-lt: #7b5ea7;
+  --text-primary: #2a2218;
+  --text-secondary: #5a4e38;
+  --text-muted: #8a7d65;
+  --text-heading: #3d2e0e;
+  --shadow-card: 0 2px 12px rgba(80, 60, 20, 0.13);
+  --shadow-glow: 0 0 14px rgba(138, 109, 32, 0.18);
+  --radius-card: 8px;
+  --radius-sm: 4px;
   --transition-fast: 150ms ease;
-  --transition-med:  250ms ease;
+  --transition-med: 250ms ease;
 }
 
-/* ============================================================
-   Reset / Base
-   ============================================================ */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -51,12 +43,13 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* ============================================================
-   Typography
-   ============================================================ */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Cinzel', serif;
   color: var(--text-heading);
   letter-spacing: 0.04em;
@@ -68,7 +61,8 @@ h1 {
   font-weight: 700;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: var(--accent-purple);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -78,7 +72,8 @@ a:hover {
   color: var(--accent-gold);
 }
 
-b, strong {
+b,
+strong {
   font-weight: 600;
 }
 
@@ -88,9 +83,6 @@ hr {
   margin: 0;
 }
 
-/* ============================================================
-   Header
-   ============================================================ */
 header {
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-strong);
@@ -101,9 +93,6 @@ header {
   box-shadow: 0 2px 8px rgba(80, 60, 20, 0.1);
 }
 
-/* ============================================================
-   NavBar
-   ============================================================ */
 nav {
   display: flex;
   gap: 8px;
@@ -135,9 +124,6 @@ nav a.active {
   background: var(--bg-raised);
 }
 
-/* ============================================================
-   Search Form
-   ============================================================ */
 #searchForm {
   display: flex;
   gap: 8px;
@@ -186,9 +172,6 @@ button:hover {
   box-shadow: var(--shadow-glow);
 }
 
-/* ============================================================
-   Search Results Strip
-   ============================================================ */
 ul {
   display: flex;
   flex-wrap: nowrap;
@@ -255,9 +238,6 @@ li div {
   overflow-wrap: anywhere;
 }
 
-/* ============================================================
-   Display Panel — one cohesive body, no per-field boxes
-   ============================================================ */
 #displayDiv {
   display: flex;
   flex-direction: row;
@@ -297,16 +277,12 @@ li div {
   min-width: 0;
 }
 
-/* Plain text lines — no individual backgrounds */
-.displayRight > div {
+.displayRight>div {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-primary);
 }
 
-/* ============================================================
-   Add Card Form
-   ============================================================ */
 #addForm {
   display: flex;
   flex-direction: column;
@@ -341,7 +317,7 @@ li div {
   align-items: center;
 }
 
-#addFormOptions > div {
+#addFormOptions>div {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -370,9 +346,6 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-/* ============================================================
-   Update Form (Collection display panel)
-   ============================================================ */
 #updateForm {
   display: flex;
   flex-direction: column;
@@ -380,7 +353,7 @@ input[type="checkbox"] {
   margin-top: 8px;
 }
 
-#updateForm > div {
+#updateForm>div {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -407,9 +380,6 @@ input[type="checkbox"] {
   border-color: var(--accent-gold);
 }
 
-/* ============================================================
-   Collection Page
-   ============================================================ */
 #collPage {
   display: flex;
   flex-direction: column;
@@ -445,9 +415,6 @@ input[type="checkbox"] {
   background: var(--bg-hover);
 }
 
-/* ============================================================
-   Audits Page — pastel backgrounds preserved
-   ============================================================ */
 #auditsPage {
   display: flex;
   flex-direction: column;
@@ -502,7 +469,7 @@ input[type="checkbox"] {
   font-size: 1rem;
 }
 
-.auditDiv > div:first-child {
+.auditDiv>div:first-child {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -511,13 +478,13 @@ input[type="checkbox"] {
   flex-shrink: 0;
 }
 
-.auditDiv > div:first-child p {
+.auditDiv>div:first-child p {
   font-size: 0.9rem;
   font-weight: 600;
   word-break: break-word;
 }
 
-.auditDiv > div:last-child {
+.auditDiv>div:last-child {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -525,14 +492,14 @@ input[type="checkbox"] {
   min-width: 0;
 }
 
-.auditDiv > div:last-child > p:first-child {
+.auditDiv>div:last-child>p:first-child {
   font-family: 'Cinzel', serif;
   font-weight: 700;
   text-transform: capitalize;
   font-size: 1.1rem;
 }
 
-.auditDiv > div:last-child > p:nth-child(2) {
+.auditDiv>div:last-child>p:nth-child(2) {
   font-size: 0.9rem;
   color: #666;
 }
@@ -557,9 +524,6 @@ input[type="checkbox"] {
   word-break: break-all;
 }
 
-/* ============================================================
-   Card Component — Tilt + Foil (layout preserved exactly)
-   ============================================================ */
 img {
   border-radius: 4.75% / 3.5%;
 }
@@ -592,9 +556,16 @@ img {
   border-radius: 4.75% / 3.5%;
 }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
+#auditsFilter {
+  display: flex;
+  align-items: center;    
+  gap: 24px;                 
+}
+
+#auditsFilter button {
+  justify-self: start;
+}
+
 @media (max-width: 900px) {
   #collResults {
     grid-template-columns: repeat(4, 1fr);
@@ -614,16 +585,18 @@ img {
     flex-direction: column;
   }
 
-  .auditDiv > div:first-child {
+  .auditDiv>div:first-child {
     width: 100%;
     flex-direction: row;
     gap: 12px;
     text-align: left;
   }
-}
 
-@media (max-width: 500px) {
   .displayLeft {
     width: 100%;
+  }
+
+  #searchResults {
+    overflow-x: auto;
   }
 }

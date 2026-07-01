@@ -78,6 +78,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
         )
         setEditMode(false)
       })
+      .catch(console.error)
   }
 
   function handleCancel(e) {
@@ -103,6 +104,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
       Promise.all([request1, request2]).then(async () => {
         onSetCollection(prevColl => prevColl.filter(card => card.id !== id))
       })
+      .catch(console.error)
     }
   }
 

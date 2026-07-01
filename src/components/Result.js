@@ -50,7 +50,7 @@ export default function Result({card, onSetSelected}) {
   function handleClick() {
     onSetSelected(clickedCard)
   }
-  console.log(card)
+  
   return (
     <li onClick={handleClick}>
       <Card image={clickedCard.img} isFoil={card.img && card.foil} />

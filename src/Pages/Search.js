@@ -60,6 +60,7 @@ export default function Search() {
         setFormData(blankFormState)
       }
     })
+    .catch(console.error)
   }
 
   function handleAddCard(e) {
@@ -93,6 +94,7 @@ export default function Search() {
       .then(async () => {
         setFormData(blankFormState)
       })
+      .catch(console.error)
     }
   }
   

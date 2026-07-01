@@ -16,6 +16,7 @@ export default function Collection() {
       setCollectionCards(data)
       setSelectedCardId(data[0]?.id)
     })
+    .catch(console.error)
   }, [])
 
   function handleClick(clickedCard) {
