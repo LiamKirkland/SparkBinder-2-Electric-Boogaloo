@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import { collURL } from "../constraints";
+import { collURL } from "../constants";
 import Result from "../components/Result";
 import Display from "../components/Display";
 

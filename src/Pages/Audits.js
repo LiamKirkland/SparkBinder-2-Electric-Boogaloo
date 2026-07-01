@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar"
-import { auditURL } from "../constraints"
+import { auditURL } from "../constants"
 import Audit from "../components/Audit"
 import { useEffect, useState } from "react"
 
