@@ -29,7 +29,7 @@ export default function Search() {
   const [formData, setFormData] = useState(blankFormState)
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
   const [loading, setLoading] = useState(false)
-  console.log(loading)
+  
   function handleChange(e) {
     const {name, value, checked} = e.target
 
