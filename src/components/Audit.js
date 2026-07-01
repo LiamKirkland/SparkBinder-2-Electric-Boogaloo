@@ -22,7 +22,7 @@ export default function Audit({ audit }) {
       return updatedKeys.map((key) => {
         return {
           att: key.split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "),
-          update: `${card[key]} ---> ${new_state[key] !== "" ? new_state[key] : "None."}`,
+          update: `${card[key] !== "" ? card[key] : "None."} ---> ${new_state[key] !== "" ? new_state[key] : "None."}`,
         }
       })
     } else {
