@@ -1,68 +1,8 @@
 {
   "collection": [
-    {
-      "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
-      "backImg": "",
-      "name": "Aspect of Hydra",
-      "type": "Instant",
-      "artist": "Mark Winters",
-      "set": "Born of the Gods",
-      "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
-      "flavor_text": "\"Even alone I outnumber you.\"",
-      "comment": "",
-      "foil": false,
-      "full_art": true,
-      "condition": "Moderately Played",
-      "id": 1
-    }
+    
   ],
   "audits": [
-    {
-      "timestamp": "7/1/2026, 11:13:30 AM",
-      "card": {
-        "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
-        "backImg": "",
-        "name": "Aspect of Hydra",
-        "type": "Instant",
-        "artist": "Mark Winters",
-        "set": "Born of the Gods",
-        "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
-        "flavor_text": "\"Even alone I outnumber you.\""
-      },
-      "action": "Card Added to Collection",
-      "new_state": {
-        "comment": "",
-        "foil": true,
-        "full_art": false,
-        "condition": "Lightly Played"
-      },
-      "id": 1
-    },
-    {
-      "timestamp": "7/1/2026, 11:13:39 AM",
-      "card": {
-        "img": "https://cards.scryfall.io/normal/front/1/9/19353629-07be-47e2-a7d5-3a5e5e1120c8.jpg?1782713487",
-        "backImg": "",
-        "name": "Aspect of Hydra",
-        "type": "Instant",
-        "artist": "Mark Winters",
-        "set": "Born of the Gods",
-        "description": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
-        "flavor_text": "\"Even alone I outnumber you.\"",
-        "comment": "",
-        "foil": true,
-        "full_art": false,
-        "condition": "Lightly Played",
-        "id": 1
-      },
-      "action": "Card Updated",
-      "new_state": {
-        "comment": "",
-        "foil": false,
-        "full_art": true,
-        "condition": "Moderately Played"
-      },
-      "id": 2
-    }
+    
   ]
 }
