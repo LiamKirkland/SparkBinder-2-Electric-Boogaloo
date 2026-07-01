@@ -172,6 +172,23 @@ button:hover {
   box-shadow: var(--shadow-glow);
 }
 
+input[type="submit"]:disabled,
+button:disabled {
+  background: var(--bg-surface); /* Shifting away from --bg-raised */
+  color: var(--text-muted);     /* Faded, lower-contrast text */
+  border-color: var(--border-weak); /* Subtle, faded border */
+  cursor: not-allowed;          /* Changes mouse to a universal "no" sign */
+  box-shadow: none;             /* Removes any default shadows */
+  opacity: 0.6;                 /* Safety layer for consistent visual dimming */
+}
+
+/* Overrides the hover effects so disabled buttons stay static */
+input[type="submit"]:disabled:hover,
+button:disabled:hover {
+  background: var(--bg-surface);
+  box-shadow: none;
+}
+
 ul {
   display: flex;
   flex-wrap: nowrap;
