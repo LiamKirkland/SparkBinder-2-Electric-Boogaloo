@@ -1,58 +1,37 @@
 import Card from "./Card"
 
 const actionsToText = {
-  added: "Card Added to selection"
+  created: "Card Added to Collection",
+  updated: "Card Updated",
+  deleted: "Card Removed from Collection"
 }
 
 export default function Audit({ audit }) {
-  const { action, card, new_state, timestamp} = audit
-  
-  const actionClass = (() => {
-    if(action.toLowerCase().includes("added")) {
-      return "add"
-    } else if(action.toLowerCase().includes("updated")) {
-      return "update"
-    } else if(action.toLowerCase().includes("removed")) {
-      return "delete"
-    } else {
-      return ""
-    }
-  })()
+  const { action, cardImg, cardName, foil, changes, timestamp} = audit
 
-  const changes = (() => {
-    if(actionClass === "update") {
-      const updatedKeys = Object.keys(new_state).filter(key => new_state[key] !== card[key])
-      
-      return updatedKeys.map((key) => {
-        return {
-          att: key.split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "),
-          update: `${card[key] !== "" ? card[key] : "None."} ---> ${new_state[key] !== "" ? new_state[key] : "None."}`,
-        }
-      })
+  const formattedChanges = Object.keys(changes).map(key => {
+    const {old, new: newValue} = changes[key]
+    const formattedKey = key.split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")
+    
+    if(typeof old !== "undefined") {
+      return `${formattedKey}: ${old === "" ? "None." : old} ---> ${newValue === "" ? "None." : newValue}`
     } else {
-      return Object.keys(new_state).map((key) => {
-        return {
-          att: key.split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "),
-          update: `${new_state[key] !== "" ? new_state[key] : "None."}`,
-        }
-      })
+      return `${formattedKey}: ${newValue === "" ? "None." : newValue}`
     }
-  })()
+  })
   
   return (
-    <div className={`auditDiv auditDiv--${actionClass}`}>
+    <div className={`auditDiv auditDiv--${action}`}>
       <div>
-        <Card image={card.img} isFoil={new_state.foil}/>
-        <p>{card.flavor_name ?? card.name}</p>
+        <Card image={cardImg} isFoil={foil}/>
+        <p>{cardName}</p>
       </div>
       <div>
-        <p>{action}</p>
+        <p>{actionsToText[action]}</p>
         <p>{timestamp}</p>
         {changes ? (
           <div className="auditChanges">
-            {changes.map(change => (
-              <p key={change.att}>{change.att}: {change.update}</p>
-            ))}
+            {formattedChanges.map(change => <p key={change}>{change}</p>)}
           </div>
         ) : null}
       </div>

@@ -1,6 +1,7 @@
 import { Children, useEffect, useState } from "react";
 import { auditURL, collURL } from "../constants";
 import Card from "./Card";
+import Alert from "./Alert";
 
 //This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
 const MANA_CLASS_OVERRIDES = {
@@ -40,6 +41,8 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
   const [editMode, setEditMode] = useState(false)
   const [formData, setFormData] = useState({comment, foil, full_art, condition})
   const [loading, setLoading] = useState(false)
+  const [showSaveMessage, setShowSaveMessage] = useState(false)
+  const [message, setMessage] = useState("")
 
   useEffect(() => {
     setShowBack(false)
@@ -65,9 +68,8 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
         body: JSON.stringify(formData),
       })
 
-
-      const obj = updatedKeys.reduce((acc, key, index) => {
-        acc[key] = { old: card[key], new: formData[key]}  // or any value you want
+      const changes = updatedKeys.reduce((acc, key, index) => {
+        acc[key] = { old: card[key], new: formData[key]} 
         return acc;
       }, {});
 
@@ -78,10 +80,11 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
           timestamp: new Date().toLocaleString("en-US", {
             timeZone: "America/New_York",
           }),
-          cardImg: card.img,
-          cardName: card.name,
+          cardImg: img,
+          cardName: flavor_name ?? name,
+          foil: formData.foil,
           action: "updated",
-          changes: {...obj},
+          changes: {...changes},
         }),
       })
 
@@ -93,6 +96,8 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
             prevColl.map((card) => card.id === id ? updatedCard : card ),
           )
           setEditMode(false)
+          setMessage("Changed saved!")
+          setShowSaveMessage(true)
         })
         .catch(console.error)
         .finally(() => setLoading(false))
@@ -112,19 +117,31 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
       setLoading(true)
 
       const request1 = fetch(`${collURL}/${id}`, {method: 'DELETE'})
+
+      const changes = Object.keys(formData).reduce((acc, key, index) => {
+        acc[key] = { new: card[key]} 
+        return acc;
+      }, {})
+
       const request2 = fetch(auditURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
-          card: card,
-          action: "Card Removed from Collection",
-          new_state: formData,
+          timestamp: new Date().toLocaleString("en-US", {
+            timeZone: "America/New_York",
+          }),
+          cardImg: img,
+          cardName: flavor_name ?? name,
+          foil: formData.foil,
+          action: "deleted",
+          changes: {...changes},
         }),
       })
 
       Promise.all([request1, request2]).then(async () => {
         onSetCollection(prevColl => prevColl.filter(card => card.id !== id))
+        setMessage("Card deleted.")
+        setShowSaveMessage(true)
       })
       .catch(console.error)
       .finally(() => setLoading(false))
@@ -145,35 +162,37 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
   const custAttributes = (() => {
     if (editMode) {
       return (
-        <form id="updateForm">
-          <div>
-            <label><b>Condition: </b></label>
-            <select name="condition" value={formData.condition} onChange={handleChange} required>
-              <option value="">Select a Condition</option>
-              <option value="Near Mint">Near Mint</option>
-              <option value="Lightly Played">Lightly Played</option>
-              <option value="Moderately Played">Moderately Played</option>
-              <option value="Heavily Played">Heavily Played</option>
-              <option value="Damaged">Damaged</option>
-            </select>
-          </div>
-          <div>
-            <label><b>Foil: </b></label>
-            <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
-          </div>
-          <div>
-            <label><b>Full Art: </b></label>
-            <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
-          </div>
-          <div>
-            <label><b>Comment: </b></label>
-            <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
-          </div>
-          <div>
-            <button onClick={handleSave} disabled={loading}>Save</button>
-            <button onClick={handleCancel} disabled={loading}>Cancel</button>
-          </div>
-        </form>
+          <>
+            <form id="updateForm">
+            <div>
+              <label><b>Condition: </b></label>
+              <select name="condition" value={formData.condition} onChange={handleChange} required>
+                <option value="">Select a Condition</option>
+                <option value="Near Mint">Near Mint</option>
+                <option value="Lightly Played">Lightly Played</option>
+                <option value="Moderately Played">Moderately Played</option>
+                <option value="Heavily Played">Heavily Played</option>
+                <option value="Damaged">Damaged</option>
+              </select>
+            </div>
+            <div>
+              <label><b>Foil: </b></label>
+              <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
+            </div>
+            <div>
+              <label><b>Full Art: </b></label>
+              <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
+            </div>
+            <div>
+              <label><b>Comment: </b></label>
+              <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
+            </div>
+            <div>
+              <button onClick={handleSave} disabled={loading}>Save</button>
+              <button onClick={handleCancel} disabled={loading}>Cancel</button>
+            </div>
+          </form>
+        </>
       )
     } else {
       return (
@@ -185,6 +204,15 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
           <div>
             <button onClick={() => setEditMode(true)} disabled={loading}>Update</button>
             <button onClick={handleDelete} disabled={loading}>Delete</button>
+            <div className="alert-wrapper">
+            {showSaveMessage && (
+              <Alert 
+                message= {message}
+                duration={1500}
+                onClose={() => setShowSaveMessage(false)}
+              />
+            )}
+          </div>
           </div>
         </>
       )
