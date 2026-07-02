@@ -96,7 +96,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
             prevColl.map((card) => card.id === id ? updatedCard : card ),
           )
           setEditMode(false)
-          setMessage("Changed saved!")
+          setMessage("Changes saved!")
           setShowSaveMessage(true)
         })
         .catch(console.error)
