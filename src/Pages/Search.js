@@ -3,6 +3,7 @@ import { scryURL, collURL, auditURL } from "../constants";
 import Result from "../components/Result";
 import Display from "../components/Display";
 import NavBar from "../components/NavBar";
+import Alert from "../components/Alert";
 
 const placeholderCard = {
   img : "/placeholder.jpg",
@@ -29,6 +30,7 @@ export default function Search() {
   const [formData, setFormData] = useState(blankFormState)
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
   const [loading, setLoading] = useState(false)
+  const [showSaveMessage, setShowSaveMessage] = useState(false)
   
   function handleChange(e) {
     const {name, value, checked} = e.target
@@ -75,6 +77,7 @@ export default function Search() {
     if (selectedCard.img === "/placeholder.jpg") {
       setFormData(blankFormState)
       alert("Search for and select a card to add it to your collection!")
+      setLoading(false)
     } else {
       const request1 = fetch(collURL, {
         method: "POST",
@@ -82,23 +85,33 @@ export default function Search() {
         body: JSON.stringify({
           ...selectedCard,
           ...formData,
-    }),
+        }),   
       })
       
+      const changes = Object.keys(formData).reduce((acc, key, index) => {
+        acc[key] = { new: formData[key]} 
+        return acc;
+      }, {})
+
       const request2 = fetch(auditURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          timestamp: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }),
-          card: selectedCard,
-          action: "Card Added to Collection",
-          new_state: formData,
+          timestamp: new Date().toLocaleString("en-US", {
+            timeZone: "America/New_York",
+          }),
+          cardImg: selectedCard.img,
+          cardName: selectedCard.flavor_name ?? selectedCard.name,
+          foil: formData.foil,
+          action: "created",
+          changes: {...changes},
         }),
       })
       
       Promise.all([request1, request2])
       .then(async () => {
         setFormData(blankFormState)
+        setShowSaveMessage(true)
       })
       .catch(console.error)
       .finally(() => setLoading(false))
@@ -145,6 +158,15 @@ export default function Search() {
             </div>
             <input type="submit" value="Add Card" id="addCard" disabled={loading}></input>
           </form>
+          <div className="alert-wrapper">
+            {showSaveMessage && (
+              <Alert 
+                message="Card added to collection!" 
+                duration={1500}
+                onClose={() => setShowSaveMessage(false)}
+              />
+            )}
+          </div>
         </Display>
     </div>
     </>

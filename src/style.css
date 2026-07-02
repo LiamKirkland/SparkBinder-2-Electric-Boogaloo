@@ -443,19 +443,19 @@ input[type="checkbox"] {
   font-size: 1.6rem;
 }
 
-.auditDiv--add {
+.auditDiv--created {
   background-color: #d4edda;
 }
 
-.auditDiv--update {
+.auditDiv--updated {
   background-color: #fff3cd;
 }
 
-.auditDiv--delete {
+.auditDiv--deleted {
   background-color: #f8d7da;
 }
 
-.auditDiv--delete .auditChanges {
+.auditDiv--deleted .auditChanges {
   text-decoration: line-through;
 }
 
@@ -623,4 +623,39 @@ img {
   #searchResults {
     overflow-x: auto;
   }
+}
+
+.toast-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background-color: #333;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10;
+  
+  animation: slideUp 0.2s ease-out forwards;
+}
+
+.toast-popup.fade-out {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 5px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translate(-50%, 0); }
+  to { opacity: 0; transform: translate(-50%, -5px); } 
+}
+
+.alert-wrapper {
+  position: relative; 
+  display: inline-block; 
 }

@@ -7,9 +7,9 @@ export default function Audits() {
   const [auditList, setAuditList] = useState([])
   const [sort, setSort] = useState("Newest")
   const [actionFilter, setFilter] = useState({
-    added: true,
+    created: true,
     updated: true,
-    removed: true
+    deleted: true
   })
   
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Audits() {
 
   const auditsToDisplay = (() => {
     const activeFilters = Object.keys(actionFilter).filter(key => actionFilter[key] === true)
-    const filteredAudits = auditList.filter(audit => activeFilters.some(key => audit.action.toLowerCase().includes(key)))
+    const filteredAudits = auditList.filter(audit => activeFilters.some(key => audit.action.includes(key)))
 
     return filteredAudits.toSorted((a, b) => {
       const dateA = new Date(a.timestamp)
@@ -40,7 +40,7 @@ export default function Audits() {
       return sort === "Newest" ? dateB - dateA : dateA - dateB
     })
   })()
-
+  console.log(auditsToDisplay)
   return (
     <>
       <header>
@@ -53,11 +53,11 @@ export default function Audits() {
           <button onClick={() => sort === "Newest" ? setSort("Oldest") : setSort("Newest")}>Sorted by: {sort}</button>
           <div>
             <span><b>Audit Types: </b></span>
-            <input type="checkbox" name="added" id="filterAdd" checked={actionFilter.added} onChange={handleChange}></input>
+            <input type="checkbox" name="created" id="filterAdd" checked={actionFilter.created} onChange={handleChange}></input>
             <label htmlFor="filterAdd">Card Added</label>
             <input type="checkbox" name="updated" id="filterUpdate" checked={actionFilter.updated} onChange={handleChange}></input>
             <label htmlFor="filterUpdate">Card Updated</label>
-            <input type="checkbox" name="removed" id="filterDelete" checked={actionFilter.removed} onChange={handleChange}></input>
+            <input type="checkbox" name="deleted" id="filterDelete" checked={actionFilter.deleted} onChange={handleChange}></input>
             <label htmlFor="filterDelete">Card Removed</label>
           </div>
         </div>
