@@ -163,7 +163,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
     if (editMode) {
       return (
           <>
-            <form id="updateForm">
+            <form id="updateForm" onSubmit={handleSave}>
             <div>
               <label><b>Condition: </b></label>
               <select name="condition" value={formData.condition} onChange={handleChange} required>
@@ -188,7 +188,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
               <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
             </div>
             <div>
-              <button onClick={handleSave} disabled={loading}>Save</button>
+              <input type="submit" value="Add Card" id="addCard" disabled={loading}></input>
               <button onClick={handleCancel} disabled={loading}>Cancel</button>
             </div>
           </form>
