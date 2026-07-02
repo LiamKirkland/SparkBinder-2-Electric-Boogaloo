@@ -51,15 +51,25 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
 
   function handleSave(e) {
     e.preventDefault()
+
+    const hasChanges = !Object.keys(formData).every((key) => card[key] === formData[key])
     
-    if(!Object.keys(formData).every((key) => card[key] === formData[key])) {
+    if(hasChanges) {
       setLoading(true)
+
+      const updatedKeys = Object.keys(formData).filter(key => formData[key] !== card[key])
 
       const request1 = fetch(`${collURL}/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
+
+
+      const obj = updatedKeys.reduce((acc, key, index) => {
+        acc[key] = { old: card[key], new: formData[key]}  // or any value you want
+        return acc;
+      }, {});
 
       const request2 = fetch(auditURL, {
         method: "POST",
@@ -68,9 +78,10 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
           timestamp: new Date().toLocaleString("en-US", {
             timeZone: "America/New_York",
           }),
-          card: card,
-          action: "Card Updated",
-          new_state: formData,
+          cardImg: card.img,
+          cardName: card.name,
+          action: "updated",
+          changes: {...obj},
         }),
       })
 

@@ -1,5 +1,9 @@
 import Card from "./Card"
 
+const actionsToText = {
+  added: "Card Added to selection"
+}
+
 export default function Audit({ audit }) {
   const { action, card, new_state, timestamp} = audit
   

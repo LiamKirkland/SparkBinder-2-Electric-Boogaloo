@@ -75,6 +75,7 @@ export default function Search() {
     if (selectedCard.img === "/placeholder.jpg") {
       setFormData(blankFormState)
       alert("Search for and select a card to add it to your collection!")
+      setLoading(false)
     } else {
       const request1 = fetch(collURL, {
         method: "POST",
