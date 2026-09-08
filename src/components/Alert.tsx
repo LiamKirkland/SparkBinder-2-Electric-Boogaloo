@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const Alert = ({ message, duration = 3000, onClose }) => {
+interface AlertProps {
+  message: string
+  duration: number
+  onClose: () => void
+}
+
+const Alert = ({ message, duration = 3000, onClose }: AlertProps) => {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {

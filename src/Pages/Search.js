@@ -130,7 +130,15 @@ export default function Search() {
         <input type="submit" value="Search" disabled={loading}></input>
       </form>
       <ul id="searchResults">
-        {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
+        {cardResults.map(card => (
+          <Result
+            card={card}
+            key={card.id}
+            isFoil={false}
+            foilForSelection={formData.foil}
+            onSetSelected={handleClick}
+          />
+        ))}
       </ul>
       <Display card={selectedCard} isFoil={formData.foil}>
         <form id="addForm" onSubmit={handleAddCard}>

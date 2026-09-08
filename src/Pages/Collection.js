@@ -43,7 +43,14 @@ export default function Collection() {
       <div id="collPage">
         <Display card={selectedCard} onSetCollection={setCollectionCards}/>
         <ul id="collResults">
-          {collectionCards.map(card => <Result card={card} key={card.id} onSetSelected={handleClick} />)}
+          {collectionCards.map(card => (
+            <Result
+              card={card}
+              key={card.id}
+              isFoil={card.foil}
+              onSetSelected={handleClick}
+            />
+          ))}
         </ul>
       </div>
     </>
