@@ -7,24 +7,29 @@ const tiltSettings = {
   foilShift: 40,
 }
 
-export default function Card({ image, isFoil }) {
-  const cardRef = useRef(null)
-  const foilRef = useRef(null)
+interface CardProps {
+  image: string,
+  isFoil: boolean
+}
 
-  function cardMouseEnter(event) {
+export default function Card({ image, isFoil }: CardProps) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const foilRef = useRef<HTMLDivElement>(null)
+
+  function cardMouseEnter(event: React.MouseEvent<HTMLDivElement>) {
     setTransition(event.currentTarget)
     if (isFoil) setTransition(foilRef.current)
   }
 
-  function cardMouseMove(event) {
+  function cardMouseMove(event: React.MouseEvent<HTMLDivElement>) {
     const card = event.currentTarget
     const rect = card.getBoundingClientRect()
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
     const mouseX = event.clientX - centerX
     const mouseY = event.clientY - centerY
-    const rotateX = mouseY / (rect.height / 2).toFixed(2)
-    const rotateY = mouseX / (rect.width / 2).toFixed(2)
+    const rotateX = Number((mouseY / (rect.height / 2)).toFixed(2))
+    const rotateY = Number((mouseX / (rect.width / 2)).toFixed(2))
 
     card.style.transform = `perspective(${tiltSettings.perspective}px) rotateX(${tiltSettings.max * rotateX}deg) rotateY(${-tiltSettings.max * rotateY}deg) scale3d(${tiltSettings.scale}, ${tiltSettings.scale}, ${tiltSettings.scale})`
 
@@ -35,7 +40,7 @@ export default function Card({ image, isFoil }) {
     }
   }
 
-  function cardMouseLeave(event) {
+  function cardMouseLeave(event: React.MouseEvent<HTMLDivElement>) {
     setTransition(event.currentTarget)
     event.currentTarget.style.transform = `perspective(${tiltSettings.perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`
 
@@ -46,7 +51,8 @@ export default function Card({ image, isFoil }) {
     }
   }
 
-  function setTransition(card) {
+  function setTransition(card: HTMLDivElement | null): void {
+    if (!card) return
     card.style.transition =
       "transform 300ms cubic-bezier(0.03, 0.98, 0.52, 0.99)," +
       "object-position 300ms cubic-bezier(0.03, 0.98, 0.52, 0.99)"

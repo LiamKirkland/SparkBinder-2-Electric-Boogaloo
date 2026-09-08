@@ -1,10 +1,10 @@
-import { Children, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { auditURL, collURL } from "../constants";
 import Card from "./Card";
 import Alert from "./Alert";
 
 //This is used to convert the mana costs/card actions from card descriptions into icons to improve readibility. 
-const MANA_CLASS_OVERRIDES = {
+const MANA_CLASS_OVERRIDES: Record<string, string> = {
   T: "tap",
   Q: "untap",
   CHAOS: "chaos",
@@ -13,12 +13,12 @@ const MANA_CLASS_OVERRIDES = {
   TK: "tk",
 }
 
-function symbolToClass(sym) {
+function symbolToClass(sym: string): string {
   if (MANA_CLASS_OVERRIDES[sym]) return MANA_CLASS_OVERRIDES[sym]
   return sym.toLowerCase().replace(/\//g, "")
 }
 
-function manaify(text) {
+function manaify(text?: string): string {
   if (!text) return ""
 
   const escaped = text
@@ -33,13 +33,42 @@ function manaify(text) {
 }
 // Manaify ^
 
+interface CardData {
+  id: string
+  img: string
+  backImg?: string
+  name: string
+  flavor_name?: string
+  type: string
+  artist: string
+  set?: string
+  description?: string
+  flavor_text?: string
+  comment?: string
+  condition: string
+  foil: boolean
+  full_art: boolean
+}
 
+interface DisplayProps {
+  card: CardData
+  children?: React.ReactNode
+  onSetCollection: React.Dispatch<React.SetStateAction<CardData[]>>
+  isFoil: boolean
+}
 
-export default function Display({ card, children, onSetCollection, isFoil }) {
+interface FormData {
+  comment?: string
+  foil: boolean
+  full_art: boolean
+  condition: string
+}
+
+export default function Display({ card, children, onSetCollection, isFoil }: DisplayProps) {
   const {img, backImg, name, flavor_name, type, artist, set, description, flavor_text, comment, condition, foil, full_art, id} = card
   const [showBack, setShowBack] = useState(false)
   const [editMode, setEditMode] = useState(false)
-  const [formData, setFormData] = useState({comment, foil, full_art, condition})
+  const [formData, setFormData] = useState<FormData>({comment, foil, full_art, condition})
   const [loading, setLoading] = useState(false)
   const [showSaveMessage, setShowSaveMessage] = useState(false)
   const [message, setMessage] = useState("")
@@ -52,15 +81,15 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
   
   const displayImg = showBack ? backImg : img
 
-  function handleSave(e) {
+  function handleSave(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const hasChanges = !Object.keys(formData).every((key) => card[key] === formData[key])
+    const hasChanges = !Object.keys(formData).every((key) => card[key as keyof CardData] === formData[key as keyof FormData])
     
     if(hasChanges) {
       setLoading(true)
 
-      const updatedKeys = Object.keys(formData).filter(key => formData[key] !== card[key])
+      const updatedKeys = Object.keys(formData).filter(key => formData[key as keyof FormData] !== card[key as keyof CardData])
 
       const request1 = fetch(`${collURL}/${id}`, {
         method: "PATCH",
@@ -68,10 +97,10 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
         body: JSON.stringify(formData),
       })
 
-      const changes = updatedKeys.reduce((acc, key, index) => {
-        acc[key] = { old: card[key], new: formData[key]} 
+      const changes = updatedKeys.reduce((acc, key) => {
+        acc[key] = { old: card[key as keyof CardData], new: formData[key as keyof FormData]} 
         return acc;
-      }, {});
+      }, {} as Record<string, { old: unknown, new: unknown }>);
 
       const request2 = fetch(auditURL, {
         method: "POST",
@@ -106,7 +135,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
     }
   }
 
-  function handleCancel(e) {
+  function handleCancel(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
     setFormData({comment, foil, full_art, condition})
     setEditMode(false)
@@ -119,9 +148,9 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
       const request1 = fetch(`${collURL}/${id}`, {method: 'DELETE'})
 
       const changes = Object.keys(formData).reduce((acc, key, index) => {
-        acc[key] = { new: card[key]} 
+        acc[key] = { new: card[key as keyof CardData]} 
         return acc;
-      }, {})
+      }, {} as Record<string, { new: unknown }>)
 
       const request2 = fetch(auditURL, {
         method: "POST",
@@ -148,8 +177,9 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
     }
   }
 
-  function handleChange(e) {
-    const {name, value, checked} = e.target
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+    const {name, value} = e.target
+    const checked = (e.target as HTMLInputElement).checked
 
     setFormData(prevData => {
       return {
@@ -188,7 +218,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
               <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
             </div>
             <div>
-              <input type="submit" value="Add Card" id="addCard" disabled={loading}></input>
+              <input type="submit" value="Update Card" id="addCard" disabled={loading}></input>
               <button onClick={handleCancel} disabled={loading}>Cancel</button>
             </div>
           </form>
@@ -222,7 +252,7 @@ export default function Display({ card, children, onSetCollection, isFoil }) {
   return (
     <div id="displayDiv">
       <div className="displayLeft">
-        <Card image={displayImg} isFoil={formData.foil ?? isFoil}/>
+        <Card image={displayImg ?? ""} isFoil={condition ? formData.foil : isFoil}/>
         {backImg ? <button className="flipBtn" onClick={() => setShowBack(prev => !prev)}>Flip Card</button> : null}
       </div>
       <div className="displayRight">
