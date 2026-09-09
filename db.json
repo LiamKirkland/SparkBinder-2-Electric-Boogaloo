@@ -60,6 +60,21 @@
       "comment": "",
       "condition": "Near Mint",
       "id": "67198b97-bac2-480f-aea8-12841e8884de"
+    },
+    {
+      "img": "https://cards.scryfall.io/normal/front/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1783918309",
+      "backImg": "https://cards.scryfall.io/normal/back/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1783918309",
+      "name": "A-Mischievous Catgeist // A-Catlike Curiosity",
+      "type": "Creature — Cat Spirit // Enchantment — Aura",
+      "artist": "Denman Rooke",
+      "set": "Innistrad: Crimson Vow",
+      "description": "Whenever Mischievous Catgeist deals combat damage to a player, draw a card. Disturb {1}{U} (You may cast this card from your graveyard transformed for its disturb cost.), // Enchant creature, Enchanted creature gets +1/+1. Enchanted creature has \"Whenever this creature deals combat damage to a player, draw a card.\", If Catlike Curiosity would be put into a graveyard from anywhere, exile it instead.",
+      "flavor_text": "",
+      "foil": true,
+      "full_art": false,
+      "comment": "car.",
+      "condition": "Near Mint",
+      "id": "4dd4f872-1af1-4bb7-81e7-409861c45b20"
     }
   ],
   "audits": [
@@ -192,6 +207,28 @@
         }
       },
       "id": 7
+    },
+    {
+      "timestamp": "9/9/2026, 9:16:07 AM",
+      "cardImg": "https://cards.scryfall.io/normal/front/4/d/4dd4f872-1af1-4bb7-81e7-409861c45b20.jpg?1783918309",
+      "cardName": "A-Mischievous Catgeist // A-Catlike Curiosity",
+      "foil": true,
+      "action": "created",
+      "changes": {
+        "comment": {
+          "new": "car."
+        },
+        "foil": {
+          "new": true
+        },
+        "full_art": {
+          "new": false
+        },
+        "condition": {
+          "new": "Near Mint"
+        }
+      },
+      "id": 8
     }
   ]
 }

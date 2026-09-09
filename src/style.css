@@ -659,3 +659,8 @@ img {
   position: relative; 
   display: inline-block; 
 }
+
+.input-error {
+  border: 2px solid red;
+  outline: none;
+}
