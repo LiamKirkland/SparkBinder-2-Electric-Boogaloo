@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { scryURL, collURL, auditURL } from "../constants";
 import Result from "../components/Result";
 import Display from "../components/Display";
@@ -25,32 +26,22 @@ const blankFormState = {
 }
 
 export default function Search() {
-  const [searchTerm, setSearchTerm] = useState("")
   const [cardResults, setCardResults] = useState([])
-  const [formData, setFormData] = useState(blankFormState)
   const [selectedCard, setSelectedCard] = useState(placeholderCard)
   const [loading, setLoading] = useState(false)
   const [showSaveMessage, setShowSaveMessage] = useState(false)
-  
-  function handleChange(e) {
-    const {name, value, checked} = e.target
 
-    setFormData(prevData => {
-      return {
-        ...prevData,
-        [name]: checked ?? value
-      }
-    })
-  }
-  
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ defaultValues: blankFormState, mode: "onBlur" })
+  const { register: registerSearch, handleSubmit: handleSearchSubmit } = useForm({ defaultValues: { searchTerm: "" }})
+
+  const liveFoil = watch("foil")
+
   function handleClick(clickedCard) {
-    setFormData(blankFormState)
+    reset()
     setSelectedCard(clickedCard)
   }
 
-  function handleSearch(e) {
-    e.preventDefault()
-
+  function handleSearch({ searchTerm }) {
     setLoading(true)
 
     fetch(`${scryURL}/search?q=${searchTerm.replace(/ /g, "+")}`)
@@ -62,20 +53,18 @@ export default function Search() {
         const cards = queryRes.data
         setCardResults([...cards.slice(0, 10)])
         setSelectedCard(placeholderCard)
-        setFormData(blankFormState)
+        reset()
       }
     })
     .catch(console.error)
     .finally(() => setLoading(false))
   }
 
-  function handleAddCard(e) {
-    e.preventDefault()
-
+  function onAddCard(formData) {
     setLoading(true)
     
     if (selectedCard.img === "/placeholder.jpg") {
-      setFormData(blankFormState)
+      reset()
       alert("Search for and select a card to add it to your collection!")
       setLoading(false)
     } else {
@@ -88,7 +77,7 @@ export default function Search() {
         }),   
       })
       
-      const changes = Object.keys(formData).reduce((acc, key, index) => {
+      const changes = Object.keys(formData).reduce((acc, key) => {
         acc[key] = { new: formData[key]} 
         return acc;
       }, {})
@@ -110,7 +99,7 @@ export default function Search() {
       
       Promise.all([request1, request2])
       .then(async () => {
-        setFormData(blankFormState)
+        reset()
         setShowSaveMessage(true)
       })
       .catch(console.error)
@@ -125,28 +114,39 @@ export default function Search() {
     </header>
       <hr></hr>
     <div>
-      <form id="searchForm" onSubmit={handleSearch}>
-        <input name="searchTerm" type="text" onChange={e => setSearchTerm(e.target.value)} value={searchTerm} required></input>
+      <form id="searchForm" onSubmit={handleSearchSubmit(handleSearch)}>
+        <input type="text" {...registerSearch("searchTerm", { required: true })}></input>
         <input type="submit" value="Search" disabled={loading}></input>
       </form>
       <ul id="searchResults">
-        {cardResults.map(card => <Result card={card} key={card.id} onSetSelected={handleClick}/>)}
+        {cardResults.map(card => (
+          <Result
+            card={card}
+            key={card.id}
+            isFoil={false}
+            foilForSelection={liveFoil}
+            onSetSelected={handleClick}
+          />
+        ))}
       </ul>
-      <Display card={selectedCard} isFoil={formData.foil}>
-        <form id="addForm" onSubmit={handleAddCard}>
-            <textarea placeholder="Add a comment..." name="comment" autoComplete="off" value={formData.comment} onChange={handleChange}></textarea>
+      <Display card={selectedCard} isFoil={liveFoil}>
+        <form id="addForm" onSubmit={handleSubmit(onAddCard)}>
+            <textarea placeholder="Add a comment..." autoComplete="off" {...register("comment")}></textarea>
             <div id="addFormOptions">
               <div>
                 <label>Foil</label>
-                <input type="checkbox" name="foil" checked={formData.foil} onChange={handleChange}></input>
+                <input type="checkbox" {...register("foil")}></input>
               </div>
               <div>
                 <label>Full Art</label>
-                <input type="checkbox" name="full_art" checked={formData.full_art} onChange={handleChange}></input>
+                <input type="checkbox" {...register("full_art")}></input>
               </div>
               <div>
                 <label>Condition</label>
-                <select name="condition" value={formData.condition} onChange={handleChange} required>
+                <select 
+                  className={errors.condition ? "input-error" : "" }
+                  {...register("condition", { required: true })}
+                >
                   <option value="">Select a Condition</option>
                   <option value="Near Mint">Near Mint</option>
                   <option value="Lightly Played">Lightly Played</option>
